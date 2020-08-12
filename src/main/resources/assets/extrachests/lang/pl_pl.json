@@ -29,5 +29,5 @@
   "book.extrachests.dirtchest9000.page5": "DirtChest 9000 is kind to the environment. Please dispose of this guide book responsibly, and do not whatever you do just chuck it into some lava. We would be very sad.",
   
   "_comment": "Item Groups",
-  "itemGroup.extrachests": "Iron Chests"
+  "itemGroup.extrachests.extrachests": "Extra Chests"
 }

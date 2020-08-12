@@ -39,5 +39,5 @@
   "extrachests.container.dirt_chest": "泥箱子9000!",
   
   "_comment": "Item Groups",
-  "itemGroup.extrachests": "Iron Chests"
+  "itemGroup.extrachests.extrachests": "Extra Chests"
 }

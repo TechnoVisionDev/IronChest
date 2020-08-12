@@ -25,7 +25,7 @@ public class ExtraChests implements ModInitializer {
     }
 
     public static final ItemGroup TAB = FabricItemGroupBuilder.create(
-            new Identifier(MOD_ID))
+            new Identifier(MOD_ID, "extrachests"))
             .icon(() -> new ItemStack(ModItems.IRON_CHEST))
             .build();
 }

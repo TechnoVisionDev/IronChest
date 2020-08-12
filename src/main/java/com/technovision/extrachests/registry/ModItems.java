@@ -9,7 +9,7 @@ import net.minecraft.util.registry.Registry;
 
 public class ModItems {
 
-    public static final Item IRON_CHEST = new BlockItem(ModBlocks.IRON_CHEST, new Item.Settings().group(ItemGroup.MATERIALS));
+    public static final Item IRON_CHEST = new BlockItem(ModBlocks.IRON_CHEST, new Item.Settings().group(ExtraChests.TAB));
 
     public static void registerItems() {
         Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "iron_chest"), IRON_CHEST);

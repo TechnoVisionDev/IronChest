@@ -29,5 +29,5 @@
   "book.extrachests.dirtchest9000.page5": "흙 상자 9000은 환경 친화적입니다. 가이드북의 처분에는 책임이 따릅니다, 그러니 어떠한 경우라도 용암에 버리지 마세요. 우리는 매우 슬플 것입니다.",
   
   "_comment": "Item Groups",
-  "itemGroup.extrachests": "Iron Chests"
+  "itemGroup.extrachests.extrachests": "Extra Chests"
 }
