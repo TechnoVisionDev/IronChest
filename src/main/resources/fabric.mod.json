@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "extrachests",
+  "version": "${version}",
+
+  "name": "Extra Chests",
+  "description": "Adds additional storage and storage-upgrade options!",
+  "authors": [
+    "TechnoVision"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/extrachests/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.technovision.extrachests.ExtraChests"
+    ],
+    "client": [
+      "com.technovision.extrachests.ExtraChestsClient"
+    ]
+  },
+  "mixins": [
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}
