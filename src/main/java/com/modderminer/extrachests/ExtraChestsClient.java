@@ -1,7 +1,7 @@
-package com.technovision.extrachests;
+package com.modderminer.extrachests;
 
-import com.technovision.extrachests.gui.IronChestDescription;
-import com.technovision.extrachests.registry.ModScreenHandlerType;
+import com.modderminer.extrachests.gui.IronChestDescription;
+import com.modderminer.extrachests.registry.ModScreenHandlerType;
 import io.github.cottonmc.cotton.gui.client.CottonInventoryScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;

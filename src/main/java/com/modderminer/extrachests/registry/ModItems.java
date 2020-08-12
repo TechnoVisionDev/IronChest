@@ -1,6 +1,6 @@
-package com.technovision.extrachests.registry;
+package com.modderminer.extrachests.registry;
 
-import com.technovision.extrachests.ExtraChests;
+import com.modderminer.extrachests.ExtraChests;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;

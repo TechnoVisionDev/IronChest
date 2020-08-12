@@ -1,11 +1,13 @@
-package com.technovision.extrachests.blocks;
+package com.modderminer.extrachests.blocks;
 
-import com.technovision.extrachests.ExtraChests;
-import com.technovision.extrachests.blockentities.IronChestBlockEntity;
+import com.modderminer.extrachests.ExtraChests;
+import com.modderminer.extrachests.blockentities.IronChestBlockEntity;
+import com.modderminer.extrachests.registry.ModBlockEntityType;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemPlacementContext;
@@ -28,7 +30,7 @@ import net.minecraft.world.World;
 
 import java.util.stream.Stream;
 
-public class IronChestBlock extends BlockWithEntity {
+public class IronChestBlock extends ChestBlock {
 
     public static final Identifier ID = new Identifier(ExtraChests.MOD_ID, "iron_chest");
 
@@ -56,13 +58,13 @@ public class IronChestBlock extends BlockWithEntity {
             Block.createCuboidShape(0, 7, 7, 1, 11, 9))
             .reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 
-    public IronChestBlock() {
+    public IronChestBlock(BlockEntityType<IronChestBlockEntity> entityType) {
         super(FabricBlockSettings.of(Material.METAL)
                 .hardness(3.5F)
                 .resistance(4.0F)
                 .sounds(BlockSoundGroup.METAL)
                 .breakByTool(FabricToolTags.PICKAXES, 0)
-                .requiresTool());
+                .requiresTool(), () -> entityType);
     }
 
     @Override

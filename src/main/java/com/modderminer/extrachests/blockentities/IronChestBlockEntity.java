@@ -1,8 +1,8 @@
-package com.technovision.extrachests.blockentities;
+package com.modderminer.extrachests.blockentities;
 
-import com.technovision.extrachests.gui.IronChestDescription;
-import com.technovision.extrachests.registry.ModBlockEntityType;
-import com.technovision.extrachests.registry.ModScreenHandlerType;
+import com.modderminer.extrachests.gui.IronChestDescription;
+import com.modderminer.extrachests.registry.ModBlockEntityType;
+import com.modderminer.extrachests.registry.ModScreenHandlerType;
 import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;

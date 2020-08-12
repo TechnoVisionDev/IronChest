@@ -4,9 +4,9 @@
   "version": "${version}",
 
   "name": "Extra Chests",
-  "description": "Adds additional storage and storage-upgrade options!",
+  "description": "Adds storage",
   "authors": [
-    "TechnoVision"
+    "ModderMiner"
   ],
   "contact": {
     "homepage": "",
@@ -19,10 +19,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.technovision.extrachests.ExtraChests"
+      "com.modderminer.extrachests.ExtraChests"
     ],
     "client": [
-      "com.technovision.extrachests.ExtraChestsClient"
+      "com.modderminer.extrachests.ExtraChestsClient"
     ]
   },
   "mixins": [
