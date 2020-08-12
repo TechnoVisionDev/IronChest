@@ -44,4 +44,5 @@ public class IronChestBlockEntity extends ChestBlockEntity implements NamedScree
         this.inventory = list;
     }
 
+
 }

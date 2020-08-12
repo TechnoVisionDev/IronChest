@@ -1,13 +1,14 @@
-package com.modderminer.extrachests.blocks;
 
-import com.modderminer.extrachests.ExtraChests;
-import com.modderminer.extrachests.blockentities.IronChestBlockEntity;
-import com.modderminer.extrachests.registry.ModBlockEntityType;
+package com.technovision.extrachests.blocks;
+
+import com.technovision.extrachests.ExtraChests;
+import com.technovision.extrachests.blockentities.IronChestBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.render.block.entity.ChestBlockEntityRenderer;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemPlacementContext;
@@ -30,7 +31,7 @@ import net.minecraft.world.World;
 
 import java.util.stream.Stream;
 
-public class IronChestBlock extends ChestBlock {
+public class IronChestBlock extends BlockWithEntity {
 
     public static final Identifier ID = new Identifier(ExtraChests.MOD_ID, "iron_chest");
 
@@ -64,7 +65,7 @@ public class IronChestBlock extends ChestBlock {
                 .resistance(4.0F)
                 .sounds(BlockSoundGroup.METAL)
                 .breakByTool(FabricToolTags.PICKAXES, 0)
-                .requiresTool(), () -> entityType);
+                .requiresTool());
     }
 
     @Override
@@ -120,10 +121,5 @@ public class IronChestBlock extends ChestBlock {
     @Override
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
-    }
-
-    @Override
-    public boolean hasComparatorOutput(BlockState state) {
-        return true;
     }
 }
