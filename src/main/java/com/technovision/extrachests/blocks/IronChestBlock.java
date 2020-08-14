@@ -2,7 +2,7 @@
 package com.technovision.extrachests.blocks;
 
 import com.technovision.extrachests.ExtraChests;
-import com.technovision.extrachests.blockentities.IronChestBlockEntity;
+import com.technovision.extrachests.blocks.blockentities.IronChestBlockEntity;
 import it.unimi.dsi.fastutil.floats.Float2FloatFunction;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

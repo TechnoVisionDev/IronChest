@@ -1,6 +1,6 @@
 package com.technovision.extrachests.registry;
 
-import com.technovision.extrachests.blockentities.IronChestBlockEntity;
+import com.technovision.extrachests.blocks.blockentities.IronChestBlockEntity;
 import com.technovision.extrachests.blocks.IronChestBlock;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.registry.Registry;

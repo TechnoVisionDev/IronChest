@@ -1,6 +1,7 @@
-package com.technovision.extrachests;
+package com.technovision.extrachests.client;
 
-import com.technovision.extrachests.blockentities.IronChestBlockEntity;
+import com.technovision.extrachests.ExtraChests;
+import com.technovision.extrachests.blocks.blockentities.IronChestBlockEntity;
 import com.technovision.extrachests.blocks.IronChestBlock;
 import it.unimi.dsi.fastutil.floats.Float2FloatFunction;
 import it.unimi.dsi.fastutil.ints.Int2IntFunction;

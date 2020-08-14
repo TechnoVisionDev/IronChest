@@ -1,4 +1,4 @@
-package com.technovision.extrachests.blockentities;
+package com.technovision.extrachests.blocks.blockentities;
 
 import com.technovision.extrachests.gui.IronChestDescription;
 import com.technovision.extrachests.registry.ModBlockEntityType;
