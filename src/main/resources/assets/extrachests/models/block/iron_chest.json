@@ -2,7 +2,7 @@
     "credit": "Made with Blockbench",
     "parent": "block/block",
     "textures": {
-        "0": "extrachests:model/iron_chest",
+        "0": "extrachests:entity/chest/iron_chest",
         "particle": "extrachests:block/iron_break"
     },
     "elements": [

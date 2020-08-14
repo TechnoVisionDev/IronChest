@@ -1,6 +1,6 @@
-package com.modderminer.extrachests.gui;
+package com.technovision.extrachests.gui;
 
-import com.modderminer.extrachests.blockentities.IronChestBlockEntity;
+import com.technovision.extrachests.blockentities.IronChestBlockEntity;
 import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
 import io.github.cottonmc.cotton.gui.widget.WGridPanel;
 import io.github.cottonmc.cotton.gui.widget.WItemSlot;
