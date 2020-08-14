@@ -1,4 +1,3 @@
-
 package com.technovision.extrachests.blocks;
 
 import com.technovision.extrachests.ExtraChests;
@@ -24,6 +23,7 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.screen.ScreenHandler;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.stat.Stat;
 import net.minecraft.stat.Stats;
@@ -92,14 +92,22 @@ public class IronChestBlock extends BlockWithEntity implements Waterloggable {
         return this.getDefaultState().with(FACING, direction).with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
     }
 
+    @Override
     public boolean hasComparatorOutput(BlockState state) {
         return true;
     }
 
+    @Override
+    public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
+        return ScreenHandler.calculateComparatorOutput((Inventory) world.getBlockEntity(pos));
+    }
+
+    @Override
     public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
         return false;
     }
 
+    @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         if (state.get(CHEST_TYPE) == ChestType.SINGLE) {
             return SINGLE_SHAPE;
@@ -123,14 +131,17 @@ public class IronChestBlock extends BlockWithEntity implements Waterloggable {
         return state.get(CHEST_TYPE) == ChestType.LEFT ? direction.rotateYClockwise() : direction.rotateYCounterclockwise();
     }
 
+    @Override
     public BlockState rotate(BlockState state, BlockRotation rotation) {
         return (BlockState)state.with(FACING, rotation.rotate((Direction)state.get(FACING)));
     }
 
+    @Override
     public BlockState mirror(BlockState state, BlockMirror mirror) {
         return state.rotate(mirror.getRotation((Direction)state.get(FACING)));
     }
 
+    @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING, CHEST_TYPE, WATERLOGGED);
     }
@@ -205,6 +216,7 @@ public class IronChestBlock extends BlockWithEntity implements Waterloggable {
         }
     }
 
+    @Override
     public FluidState getFluidState(BlockState state) {
         return (Boolean)state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
     }

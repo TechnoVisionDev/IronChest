@@ -95,7 +95,6 @@ public class IronChestBlockEntity extends LootableContainerBlockEntity implement
                 return false;
             }
         }
-
         return true;
     }
 
@@ -106,7 +105,6 @@ public class IronChestBlockEntity extends LootableContainerBlockEntity implement
         if (!this.deserializeLootTable(tag)) {
             Inventories.fromTag(tag, this.chestContents);
         }
-
     }
 
     @Override
@@ -115,7 +113,6 @@ public class IronChestBlockEntity extends LootableContainerBlockEntity implement
         if (!this.serializeLootTable(tag)) {
             Inventories.toTag(tag, this.chestContents);
         }
-
         return tag;
     }
 
@@ -213,6 +210,5 @@ public class IronChestBlockEntity extends LootableContainerBlockEntity implement
             this.world.addSyncedBlockEvent(this.pos, block, 1, this.numPlayersUsing);
             this.world.updateNeighborsAlways(this.pos, block);
         }
-
     }
 }
