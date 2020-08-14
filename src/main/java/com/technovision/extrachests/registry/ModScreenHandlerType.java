@@ -1,7 +1,7 @@
 package com.technovision.extrachests.registry;
 
 import com.technovision.extrachests.blocks.IronChestBlock;
-import com.technovision.extrachests.gui.IronChestDescription;
+import com.technovision.extrachests.screenhandlers.IronChestDescription;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.ScreenHandlerType;

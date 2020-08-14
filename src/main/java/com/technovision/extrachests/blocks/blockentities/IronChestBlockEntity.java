@@ -1,7 +1,7 @@
 package com.technovision.extrachests.blocks.blockentities;
 
 import com.technovision.extrachests.blocks.IronChestBlock;
-import com.technovision.extrachests.gui.IronChestDescription;
+import com.technovision.extrachests.screenhandlers.IronChestDescription;
 import com.technovision.extrachests.registry.ModBlockEntityType;
 import com.technovision.extrachests.registry.ModScreenHandlerType;
 import net.fabricmc.api.EnvType;

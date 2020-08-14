@@ -1,7 +1,7 @@
 package com.technovision.extrachests;
 
 import com.technovision.extrachests.client.IronChestBlockEntityRenderer;
-import com.technovision.extrachests.gui.IronChestDescription;
+import com.technovision.extrachests.screenhandlers.IronChestDescription;
 import com.technovision.extrachests.registry.ModBlockEntityType;
 import com.technovision.extrachests.registry.ModScreenHandlerType;
 import io.github.cottonmc.cotton.gui.client.CottonInventoryScreen;

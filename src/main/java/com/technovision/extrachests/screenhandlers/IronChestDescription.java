@@ -1,4 +1,4 @@
-package com.technovision.extrachests.gui;
+package com.technovision.extrachests.screenhandlers;
 
 import com.technovision.extrachests.blocks.blockentities.IronChestBlockEntity;
 import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
