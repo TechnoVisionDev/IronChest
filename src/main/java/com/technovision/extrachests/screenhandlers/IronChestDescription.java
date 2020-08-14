@@ -4,6 +4,7 @@ import com.technovision.extrachests.blocks.blockentities.IronChestBlockEntity;
 import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
 import io.github.cottonmc.cotton.gui.widget.WGridPanel;
 import io.github.cottonmc.cotton.gui.widget.WItemSlot;
+import io.github.cottonmc.cotton.gui.widget.WPlainPanel;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -19,20 +20,19 @@ public class IronChestDescription extends SyncedGuiDescription {
         inventory = getBlockInventory(context, IronChestBlockEntity.INVENTORY_SIZE);
         inventory.onOpen(playerInventory.player);
 
-        WGridPanel root = new WGridPanel();
+        WPlainPanel root = new WPlainPanel();
         setRootPanel(root);
 
         WItemSlot itemSlot;
         int counter = 0;
-        for (int i = 1; i < 7; i++) {
-            for (int j = 0; j < 9; j++) {
+        for (int j = 0; j < 6; j++) {
+            for (int i = 0; i < 9; i++) {
                 itemSlot = WItemSlot.of(blockInventory, counter);
-                root.add(itemSlot, j, i);
+                root.add(itemSlot, (18 * i), 12 + (18 * j));
                 counter++;
             }
         }
-
-        root.add(this.createPlayerInventoryPanel(), 0, 7);
+        root.add(this.createPlayerInventoryPanel(), 0, 102 + 21);
         root.validate(this);
     }
 

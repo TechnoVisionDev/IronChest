@@ -16,6 +16,7 @@ import net.minecraft.client.block.ChestAnimationProgress;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.mob.PiglinBrain;
+import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -35,11 +36,15 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.function.BiPredicate;
 import java.util.function.Supplier;
 
@@ -178,6 +183,31 @@ public class IronChestBlock extends BlockWithEntity implements Waterloggable {
         }
     }
 
+    public static boolean isChestBlocked(WorldAccess world, BlockPos pos) {
+        return hasBlockOnTop(world, pos) || hasOcelotOnTop(world, pos);
+    }
+
+    private static boolean hasBlockOnTop(BlockView world, BlockPos pos) {
+        BlockPos blockPos = pos.up();
+        return world.getBlockState(blockPos).isSolidBlock(world, blockPos);
+    }
+
+    private static boolean hasOcelotOnTop(WorldAccess world, BlockPos pos) {
+        List<CatEntity> list = world.getNonSpectatingEntities(CatEntity.class, new Box((double)pos.getX(), (double)(pos.getY() + 1), (double)pos.getZ(), (double)(pos.getX() + 1), (double)(pos.getY() + 2), (double)(pos.getZ() + 1)));
+        if (!list.isEmpty()) {
+            Iterator var3 = list.iterator();
+
+            while(var3.hasNext()) {
+                CatEntity catEntity = (CatEntity)var3.next();
+                if (catEntity.isInSittingPose()) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     @Override
     public BlockEntity createBlockEntity(BlockView world) {
         return new IronChestBlockEntity();
@@ -186,13 +216,11 @@ public class IronChestBlock extends BlockWithEntity implements Waterloggable {
     public DoubleBlockProperties.PropertySource<? extends IronChestBlockEntity> getBlockEntitySource(BlockState state, World world, BlockPos pos, boolean ignoreBlocked) {
         BiPredicate biPredicate;
         if (ignoreBlocked) {
-            biPredicate = (worldAccess, blockPos) -> {
-                return false;
-            };
+            biPredicate = (worldAccess, blockPos) -> false;
+        } else if (isChestBlocked(world, pos)){
+            biPredicate = (worldAccess, blockPos) -> true;
         } else {
-            biPredicate = (worldAccess, blockPos) -> {
-                return false;
-            };
+            biPredicate = (worldAccess, blockPos) -> false;
         }
         return DoubleBlockProperties.toPropertySource((BlockEntityType)this.entityTypeRetriever.get(), IronChestBlock::getMergerType, IronChestBlock::getDirectionToAttached, FACING, state, world, pos, biPredicate);
     }
