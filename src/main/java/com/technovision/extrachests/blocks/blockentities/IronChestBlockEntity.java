@@ -10,18 +10,13 @@ import net.fabricmc.api.EnvironmentInterface;
 import net.fabricmc.api.EnvironmentInterfaces;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.ChestBlock;
 import net.minecraft.block.entity.*;
-import net.minecraft.block.enums.ChestType;
 import net.minecraft.client.block.ChestAnimationProgress;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.DoubleInventory;
 import net.minecraft.inventory.Inventories;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.sound.SoundCategory;
@@ -32,12 +27,8 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Tickable;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-
-import java.util.Iterator;
-import java.util.List;
 
 @EnvironmentInterfaces({@EnvironmentInterface(
         value = EnvType.CLIENT,
@@ -164,18 +155,10 @@ public class IronChestBlockEntity extends LootableContainerBlockEntity implement
     }
 
     private void playSound(SoundEvent soundEvent) {
-        ChestType chestType = (ChestType)this.getCachedState().get(ChestBlock.CHEST_TYPE);
-        if (chestType != ChestType.LEFT) {
-            double d = (double)this.pos.getX() + 0.5D;
-            double e = (double)this.pos.getY() + 0.5D;
-            double f = (double)this.pos.getZ() + 0.5D;
-            if (chestType == ChestType.RIGHT) {
-                Direction direction = ChestBlock.getFacing(this.getCachedState());
-                d += (double)direction.getOffsetX() * 0.5D;
-                f += (double)direction.getOffsetZ() * 0.5D;
-            }
-            this.world.playSound((PlayerEntity)null, d, e, f, soundEvent, SoundCategory.BLOCKS, 0.5F, this.world.random.nextFloat() * 0.1F + 0.9F);
-        }
+        double d0 = (double) this.pos.getX() + 0.5D;
+        double d1 = (double) this.pos.getY() + 0.5D;
+        double d2 = (double) this.pos.getZ() + 0.5D;
+        this.world.playSound((PlayerEntity) null, d0, d1, d2, soundEvent, SoundCategory.BLOCKS, 0.5F, this.world.random.nextFloat() * 0.1F + 0.9F);
     }
 
     public static int tickViewerCount(World world, LockableContainerBlockEntity blockEntity, int ticksOpen, int x, int y, int z, int viewerCount) {
@@ -185,28 +168,14 @@ public class IronChestBlockEntity extends LootableContainerBlockEntity implement
         return viewerCount;
     }
 
-    public static int countViewers(World world, LockableContainerBlockEntity container, int ticksOpen, int x, int y) {
+    public static int countViewers(World world, LockableContainerBlockEntity blockEntity, int x, int y, int z) {
         int i = 0;
-        List<PlayerEntity> list = world.getNonSpectatingEntities(PlayerEntity.class, new Box((double)((float)ticksOpen - 5.0F), (double)((float)x - 5.0F), (double)((float)y - 5.0F), (double)((float)(ticksOpen + 1) + 5.0F), (double)((float)(x + 1) + 5.0F), (double)((float)(y + 1) + 5.0F)));
-        Iterator var8 = list.iterator();
-
-        while(true) {
-            Inventory inventory;
-            do {
-                PlayerEntity playerEntity;
-                do {
-                    if (!var8.hasNext()) {
-                        return i;
-                    }
-
-                    playerEntity = (PlayerEntity)var8.next();
-                } while(!(playerEntity.currentScreenHandler instanceof GenericContainerScreenHandler));
-
-                inventory = ((GenericContainerScreenHandler)playerEntity.currentScreenHandler).getInventory();
-            } while(inventory != container && (!(inventory instanceof DoubleInventory) || !((DoubleInventory)inventory).isPart(container)));
-
-            ++i;
+        for (PlayerEntity playerentity : world.getNonSpectatingEntities(PlayerEntity.class, new Box((double) ((float) x - 5.0F), (double) ((float) y - 5.0F), (double) ((float) z - 5.0F), (double) ((float) (x + 1) + 5.0F), (double) ((float) (y + 1) + 5.0F), (double) ((float) (z + 1) + 5.0F)))) {
+            if (playerentity.currentScreenHandler instanceof IronChestDescription) {
+                ++i;
+            }
         }
+        return i;
     }
 
     @Override
