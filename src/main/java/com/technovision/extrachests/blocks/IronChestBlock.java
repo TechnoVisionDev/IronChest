@@ -46,8 +46,6 @@ import java.util.function.Supplier;
 public class IronChestBlock extends BlockWithEntity implements Waterloggable {
 
     public static final Identifier ID = new Identifier(ExtraChests.MOD_ID, "iron_chest");
-    private final Supplier<BlockEntityType<? extends IronChestBlockEntity>> entityTypeRetriever;
-
     public static final DirectionProperty FACING;
     public static final EnumProperty<ChestType> CHEST_TYPE;
     public static final BooleanProperty WATERLOGGED;
@@ -56,6 +54,8 @@ public class IronChestBlock extends BlockWithEntity implements Waterloggable {
     protected static final VoxelShape DOUBLE_WEST_SHAPE;
     protected static final VoxelShape DOUBLE_EAST_SHAPE;
     protected static final VoxelShape SINGLE_SHAPE;
+
+    private final Supplier<BlockEntityType<? extends IronChestBlockEntity>> entityTypeRetriever;
 
     static {
         FACING = HorizontalFacingBlock.FACING;
@@ -76,7 +76,7 @@ public class IronChestBlock extends BlockWithEntity implements Waterloggable {
                 .breakByTool(FabricToolTags.PICKAXES, 0)
                 .requiresTool());
         this.entityTypeRetriever = entityTypeRetriever;
-        this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false));
+        this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.FALSE);
     }
 
     @Override

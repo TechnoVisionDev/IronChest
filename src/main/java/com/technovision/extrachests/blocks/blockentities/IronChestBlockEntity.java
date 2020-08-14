@@ -1,8 +1,8 @@
 package com.technovision.extrachests.blocks.blockentities;
 
+import com.technovision.extrachests.blocks.IronChestBlock;
 import com.technovision.extrachests.gui.IronChestDescription;
 import com.technovision.extrachests.registry.ModBlockEntityType;
-import com.technovision.extrachests.registry.ModBlocks;
 import com.technovision.extrachests.registry.ModScreenHandlerType;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -38,7 +38,6 @@ import net.minecraft.world.World;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.function.Supplier;
 
 @EnvironmentInterfaces({@EnvironmentInterface(
         value = EnvType.CLIENT,
@@ -52,12 +51,10 @@ public class IronChestBlockEntity extends LootableContainerBlockEntity implement
     protected float prevLidAngle;
     public int numPlayersUsing;
     private int ticksSinceSync;
-    private Supplier<Block> blockToUse;
 
     public IronChestBlockEntity() {
         super(ModBlockEntityType.IRON_CHEST);
         chestContents = DefaultedList.ofSize(INVENTORY_SIZE, ItemStack.EMPTY);
-        this.blockToUse = () -> ModBlocks.IRON_CHEST;
     }
 
     @Override
@@ -92,7 +89,7 @@ public class IronChestBlockEntity extends LootableContainerBlockEntity implement
 
     @Override
     public int size() {
-        return this.getInvStackList().size();
+        return INVENTORY_SIZE;
     }
 
     @Environment(EnvType.CLIENT)
@@ -144,7 +141,6 @@ public class IronChestBlockEntity extends LootableContainerBlockEntity implement
         }
 
         if (this.numPlayersUsing == 0 && this.lidAngle > 0.0F || this.numPlayersUsing > 0 && this.lidAngle < 1.0F) {
-            System.out.println("LOL");
             float f1 = this.lidAngle;
             if (this.numPlayersUsing > 0) {
                 this.lidAngle += 0.1F;
@@ -186,13 +182,11 @@ public class IronChestBlockEntity extends LootableContainerBlockEntity implement
         if (!world.isClient && viewerCount != 0 && (ticksOpen + x + y + z) % 200 == 0) {
             viewerCount = countViewers(world, blockEntity, x, y, z);
         }
-
         return viewerCount;
     }
 
     public static int countViewers(World world, LockableContainerBlockEntity container, int ticksOpen, int x, int y) {
         int i = 0;
-        float f = 5.0F;
         List<PlayerEntity> list = world.getNonSpectatingEntities(PlayerEntity.class, new Box((double)((float)ticksOpen - 5.0F), (double)((float)x - 5.0F), (double)((float)y - 5.0F), (double)((float)(ticksOpen + 1) + 5.0F), (double)((float)(x + 1) + 5.0F), (double)((float)(y + 1) + 5.0F)));
         Iterator var8 = list.iterator();
 
@@ -217,7 +211,6 @@ public class IronChestBlockEntity extends LootableContainerBlockEntity implement
 
     @Override
     public boolean onSyncedBlockEvent(int type, int data) {
-        System.out.println(data);
         if (type == 1) {
             this.numPlayersUsing = data;
             return true;
@@ -232,11 +225,9 @@ public class IronChestBlockEntity extends LootableContainerBlockEntity implement
             if (this.numPlayersUsing < 0) {
                 this.numPlayersUsing = 0;
             }
-
             ++this.numPlayersUsing;
             this.onInvOpenOrClose();
         }
-
     }
 
     @Override
@@ -249,7 +240,7 @@ public class IronChestBlockEntity extends LootableContainerBlockEntity implement
 
     protected void onInvOpenOrClose() {
         Block block = this.getCachedState().getBlock();
-        if (block instanceof ChestBlock) {
+        if (block instanceof IronChestBlock) {
             this.world.addSyncedBlockEvent(this.pos, block, 1, this.numPlayersUsing);
             this.world.updateNeighborsAlways(this.pos, block);
         }
