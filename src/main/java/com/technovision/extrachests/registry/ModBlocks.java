@@ -12,6 +12,7 @@ public class ModBlocks {
     public static final Block GOLD_CHEST = new GoldChestBlock();
     public static final Block DIAMOND_CHEST = new DiamondChestBlock();
     public static final Block COPPER_CHEST = new CopperChestBlock();
+    public static final Block SILVER_CHEST = new SilverChestBlock();
     public static final Block CRYSTAL_CHEST = new CrystalChestBlock();
     public static final Block OBSIDIAN_CHEST = new ObsidianChestBlock();
 
@@ -20,6 +21,7 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(ExtraChests.MOD_ID, "gold_chest"), GOLD_CHEST);
         Registry.register(Registry.BLOCK, new Identifier(ExtraChests.MOD_ID, "diamond_chest"), DIAMOND_CHEST);
         Registry.register(Registry.BLOCK, new Identifier(ExtraChests.MOD_ID, "copper_chest"), COPPER_CHEST);
+        Registry.register(Registry.BLOCK, new Identifier(ExtraChests.MOD_ID, "silver_chest"), SILVER_CHEST);
         Registry.register(Registry.BLOCK, new Identifier(ExtraChests.MOD_ID, "crystal_chest"), CRYSTAL_CHEST);
         Registry.register(Registry.BLOCK, new Identifier(ExtraChests.MOD_ID, "obsidian_chest"), OBSIDIAN_CHEST);
     }

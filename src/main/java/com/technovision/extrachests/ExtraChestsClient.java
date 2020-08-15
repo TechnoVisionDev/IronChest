@@ -22,6 +22,7 @@ public class ExtraChestsClient implements ClientModInitializer {
         ScreenRegistry.<ExtraChestScreenHandler, CottonInventoryScreen<ExtraChestScreenHandler>>register(ModScreenHandlerType.GOLD_CHEST, (desc, inventory, title) -> new CottonInventoryScreen<>(desc, inventory.player, title));
         ScreenRegistry.<ExtraChestScreenHandler, CottonInventoryScreen<ExtraChestScreenHandler>>register(ModScreenHandlerType.DIAMOND_CHEST, (desc, inventory, title) -> new CottonInventoryScreen<>(desc, inventory.player, title));
         ScreenRegistry.<ExtraChestScreenHandler, CottonInventoryScreen<ExtraChestScreenHandler>>register(ModScreenHandlerType.COPPER_CHEST, (desc, inventory, title) -> new CottonInventoryScreen<>(desc, inventory.player, title));
+        ScreenRegistry.<ExtraChestScreenHandler, CottonInventoryScreen<ExtraChestScreenHandler>>register(ModScreenHandlerType.SILVER_CHEST, (desc, inventory, title) -> new CottonInventoryScreen<>(desc, inventory.player, title));
         ScreenRegistry.<ExtraChestScreenHandler, CottonInventoryScreen<ExtraChestScreenHandler>>register(ModScreenHandlerType.CRYSTAL_CHEST, (desc, inventory, title) -> new CottonInventoryScreen<>(desc, inventory.player, title));
         ScreenRegistry.<ExtraChestScreenHandler, CottonInventoryScreen<ExtraChestScreenHandler>>register(ModScreenHandlerType.OBSIDIAN_CHEST, (desc, inventory, title) -> new CottonInventoryScreen<>(desc, inventory.player, title));
 
@@ -29,6 +30,7 @@ public class ExtraChestsClient implements ClientModInitializer {
         BlockEntityRendererRegistry.INSTANCE.register(ModBlockEntityType.GOLD_CHEST, ExtraChestBlockEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(ModBlockEntityType.DIAMOND_CHEST, ExtraChestBlockEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(ModBlockEntityType.COPPER_CHEST, ExtraChestBlockEntityRenderer::new);
+        BlockEntityRendererRegistry.INSTANCE.register(ModBlockEntityType.SILVER_CHEST, ExtraChestBlockEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(ModBlockEntityType.CRYSTAL_CHEST, ExtraChestBlockEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(ModBlockEntityType.OBSIDIAN_CHEST, ExtraChestBlockEntityRenderer::new);
 
@@ -38,6 +40,7 @@ public class ExtraChestsClient implements ClientModInitializer {
             registry.register(new Identifier(ExtraChests.MOD_ID, "entity/chest/gold_chest"));
             registry.register(new Identifier(ExtraChests.MOD_ID, "entity/chest/diamond_chest"));
             registry.register(new Identifier(ExtraChests.MOD_ID, "entity/chest/copper_chest"));
+            registry.register(new Identifier(ExtraChests.MOD_ID, "entity/chest/silver_chest"));
             registry.register(new Identifier(ExtraChests.MOD_ID, "entity/chest/crystal_chest"));
             registry.register(new Identifier(ExtraChests.MOD_ID, "entity/chest/obsidian_chest"));
         });

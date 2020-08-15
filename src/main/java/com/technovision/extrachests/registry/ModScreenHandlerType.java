@@ -14,6 +14,7 @@ public class ModScreenHandlerType {
     public static ScreenHandlerType<ExtraChestScreenHandler> GOLD_CHEST;
     public static ScreenHandlerType<ExtraChestScreenHandler> DIAMOND_CHEST;
     public static ScreenHandlerType<ExtraChestScreenHandler> COPPER_CHEST;
+    public static ScreenHandlerType<ExtraChestScreenHandler> SILVER_CHEST;
     public static ScreenHandlerType<ExtraChestScreenHandler> CRYSTAL_CHEST;
     public static ScreenHandlerType<ExtraChestScreenHandler> OBSIDIAN_CHEST;
 
@@ -22,6 +23,7 @@ public class ModScreenHandlerType {
         GOLD_CHEST = ScreenHandlerRegistry.registerSimple(new Identifier(ExtraChests.MOD_ID, "gold_chest"), (syncId, inventory) -> new ExtraChestScreenHandler(GOLD_CHEST, ExtraChestTypes.GOLD, syncId, inventory, ScreenHandlerContext.EMPTY));
         DIAMOND_CHEST = ScreenHandlerRegistry.registerSimple(new Identifier(ExtraChests.MOD_ID, "diamond_chest"), (syncId, inventory) -> new ExtraChestScreenHandler(DIAMOND_CHEST, ExtraChestTypes.DIAMOND, syncId, inventory, ScreenHandlerContext.EMPTY));
         COPPER_CHEST = ScreenHandlerRegistry.registerSimple(new Identifier(ExtraChests.MOD_ID, "copper_chest"), (syncId, inventory) -> new ExtraChestScreenHandler(COPPER_CHEST, ExtraChestTypes.COPPER, syncId, inventory, ScreenHandlerContext.EMPTY));
+        SILVER_CHEST = ScreenHandlerRegistry.registerSimple(new Identifier(ExtraChests.MOD_ID, "silver_chest"), (syncId, inventory) -> new ExtraChestScreenHandler(SILVER_CHEST, ExtraChestTypes.SILVER, syncId, inventory, ScreenHandlerContext.EMPTY));
         CRYSTAL_CHEST = ScreenHandlerRegistry.registerSimple(new Identifier(ExtraChests.MOD_ID, "crystal_chest"), (syncId, inventory) -> new ExtraChestScreenHandler(CRYSTAL_CHEST, ExtraChestTypes.CRYSTAL, syncId, inventory, ScreenHandlerContext.EMPTY));
         OBSIDIAN_CHEST = ScreenHandlerRegistry.registerSimple(new Identifier(ExtraChests.MOD_ID, "obsidian_chest"), (syncId, inventory) -> new ExtraChestScreenHandler(OBSIDIAN_CHEST, ExtraChestTypes.OBSIDIAN, syncId, inventory, ScreenHandlerContext.EMPTY));
     }
