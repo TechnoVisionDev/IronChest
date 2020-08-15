@@ -1,12 +1,6 @@
 package com.technovision.extrachests.blocks;
 
 import com.technovision.extrachests.ExtraChests;
-import com.technovision.extrachests.blocks.blockentities.GenericExtraChestBlockEntity;
-import com.technovision.extrachests.blocks.blockentities.GoldChestBlockEntity;
-import com.technovision.extrachests.blocks.blockentities.IronChestBlockEntity;
-import com.technovision.extrachests.registry.ModBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 
 public enum ExtraChestTypes {
@@ -47,31 +41,5 @@ public enum ExtraChestTypes {
 
     public int getRowCount() {
         return this.size / this.rowLength;
-    }
-
-    public boolean isTransparent() {
-        return this == CRYSTAL;
-    }
-
-    public static Block get(ExtraChestTypes type) {
-        switch (type) {
-            case IRON:
-                return ModBlocks.IRON_CHEST;
-            case GOLD:
-                return ModBlocks.GOLD_CHEST;
-            default:
-                return Blocks.CHEST;
-        }
-    }
-
-    public GenericExtraChestBlockEntity makeEntity() {
-        switch (this) {
-            case IRON:
-                return new IronChestBlockEntity();
-            case GOLD:
-                return new GoldChestBlockEntity();
-            default:
-                return null;
-        }
     }
 }

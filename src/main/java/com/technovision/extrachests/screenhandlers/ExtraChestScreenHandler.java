@@ -20,7 +20,7 @@ public class ExtraChestScreenHandler extends SyncedGuiDescription {
         inventory = getBlockInventory(context, chestType.size);
         inventory.onOpen(playerInventory.player);
 
-        int rows = chestType.size / chestType.rowLength;
+        int rows = chestType.getRowCount();
         int length = chestType.rowLength;
 
         WPlainPanel root = new WPlainPanel();
