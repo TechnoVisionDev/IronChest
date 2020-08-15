@@ -39,7 +39,13 @@ public class ExtraChestScreenHandler extends SyncedGuiDescription {
         if (chestType.size > 54) {
             height += 18 * ((chestType.size - 54) / length);
         }
-        root.add(this.createPlayerInventoryPanel(), 0, height);
+
+        int width = 0;
+        if (chestType.rowLength > 9) {
+            width = 9 * (chestType.rowLength - 9);
+            height -= 18;
+        }
+        root.add(this.createPlayerInventoryPanel(), width, height);
         root.validate(this);
     }
 
