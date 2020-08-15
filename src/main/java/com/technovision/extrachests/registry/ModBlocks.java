@@ -16,6 +16,7 @@ public class ModBlocks {
     public static final Block CRYSTAL_CHEST = new CrystalChestBlock();
     public static final Block OBSIDIAN_CHEST = new ObsidianChestBlock();
     public static final Block HOLIDAY_CHEST = new HolidayChestBlock();
+    public static final Block DIRT_CHEST = new DirtChestBlock();
 
     public static void registerBlocks() {
         Registry.register(Registry.BLOCK, new Identifier(ExtraChests.MOD_ID, "iron_chest"), IRON_CHEST);
@@ -26,6 +27,7 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(ExtraChests.MOD_ID, "crystal_chest"), CRYSTAL_CHEST);
         Registry.register(Registry.BLOCK, new Identifier(ExtraChests.MOD_ID, "obsidian_chest"), OBSIDIAN_CHEST);
         Registry.register(Registry.BLOCK, new Identifier(ExtraChests.MOD_ID, "holiday_chest"), HOLIDAY_CHEST);
+        Registry.register(Registry.BLOCK, new Identifier(ExtraChests.MOD_ID, "dirt_chest"), DIRT_CHEST);
     }
 
 }

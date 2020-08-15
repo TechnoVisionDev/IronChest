@@ -12,11 +12,11 @@ import net.minecraft.world.BlockView;
 public class HolidayChestBlock extends GenericExtraChestBlock {
 
     public HolidayChestBlock() {
-        super(FabricBlockSettings.of(Material.METAL)
+        super(FabricBlockSettings.of(Material.WOOD)
                         .hardness(3.0F)
                         .resistance(3.0F)
-                        .sounds(BlockSoundGroup.METAL)
-                        .breakByTool(FabricToolTags.PICKAXES, 0)
+                        .sounds(BlockSoundGroup.WOOD)
+                        .breakByTool(FabricToolTags.AXES, 0)
                         .requiresTool(),
                 ExtraChestTypes.HOLIDAY,
                 () -> ModBlockEntityType.HOLIDAY_CHEST);

@@ -26,6 +26,7 @@ public class ExtraChestsClient implements ClientModInitializer {
         ScreenRegistry.<ExtraChestScreenHandler, CottonInventoryScreen<ExtraChestScreenHandler>>register(ModScreenHandlerType.CRYSTAL_CHEST, (desc, inventory, title) -> new CottonInventoryScreen<>(desc, inventory.player, title));
         ScreenRegistry.<ExtraChestScreenHandler, CottonInventoryScreen<ExtraChestScreenHandler>>register(ModScreenHandlerType.OBSIDIAN_CHEST, (desc, inventory, title) -> new CottonInventoryScreen<>(desc, inventory.player, title));
         ScreenRegistry.<ExtraChestScreenHandler, CottonInventoryScreen<ExtraChestScreenHandler>>register(ModScreenHandlerType.HOLIDAY_CHEST, (desc, inventory, title) -> new CottonInventoryScreen<>(desc, inventory.player, title));
+        ScreenRegistry.<ExtraChestScreenHandler, CottonInventoryScreen<ExtraChestScreenHandler>>register(ModScreenHandlerType.DIRT_CHEST, (desc, inventory, title) -> new CottonInventoryScreen<>(desc, inventory.player, title));
 
         BlockEntityRendererRegistry.INSTANCE.register(ModBlockEntityType.IRON_CHEST, ExtraChestBlockEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(ModBlockEntityType.GOLD_CHEST, ExtraChestBlockEntityRenderer::new);
@@ -35,6 +36,7 @@ public class ExtraChestsClient implements ClientModInitializer {
         BlockEntityRendererRegistry.INSTANCE.register(ModBlockEntityType.CRYSTAL_CHEST, ExtraChestBlockEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(ModBlockEntityType.OBSIDIAN_CHEST, ExtraChestBlockEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(ModBlockEntityType.HOLIDAY_CHEST, ExtraChestBlockEntityRenderer::new);
+        BlockEntityRendererRegistry.INSTANCE.register(ModBlockEntityType.DIRT_CHEST, ExtraChestBlockEntityRenderer::new);
 
         //Register Textures to Chest Atlas
         ClientSpriteRegistryCallback.event(TexturedRenderLayers.CHEST_ATLAS_TEXTURE).register((texture, registry) -> {
@@ -45,6 +47,7 @@ public class ExtraChestsClient implements ClientModInitializer {
             registry.register(new Identifier(ExtraChests.MOD_ID, "entity/chest/silver_chest"));
             registry.register(new Identifier(ExtraChests.MOD_ID, "entity/chest/crystal_chest"));
             registry.register(new Identifier(ExtraChests.MOD_ID, "entity/chest/obsidian_chest"));
+            registry.register(new Identifier(ExtraChests.MOD_ID, "entity/chest/dirt_chest"));
         });
     }
 

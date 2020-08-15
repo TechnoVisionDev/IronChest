@@ -1,7 +1,6 @@
 package com.technovision.extrachests.screenhandlers;
 
 import com.technovision.extrachests.blocks.ExtraChestTypes;
-import com.technovision.extrachests.blocks.blockentities.GenericExtraChestBlockEntity;
 import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
 import io.github.cottonmc.cotton.gui.widget.WItemSlot;
 import io.github.cottonmc.cotton.gui.widget.WPlainPanel;
@@ -28,11 +27,16 @@ public class ExtraChestScreenHandler extends SyncedGuiDescription {
 
         WItemSlot itemSlot;
         int counter = 0;
-        for (int j = 0; j < rows; j++) {
-            for (int i = 0; i < length; i++) {
-                itemSlot = WItemSlot.of(blockInventory, counter);
-                root.add(itemSlot, (18 * i), 12 + (18 * j));
-                counter++;
+        if (chestType.rowLength == 1) {
+            itemSlot = WItemSlot.of(blockInventory, 0);
+            root.add(itemSlot, (18 * 4), 12);
+        } else {
+            for (int j = 0; j < rows; j++) {
+                for (int i = 0; i < length; i++) {
+                    itemSlot = WItemSlot.of(blockInventory, counter);
+                    root.add(itemSlot, (18 * i), 12 + (18 * j));
+                    counter++;
+                }
             }
         }
 
@@ -43,6 +47,7 @@ public class ExtraChestScreenHandler extends SyncedGuiDescription {
         if (chestType.rowLength > 9) {
             width = 9 * (chestType.rowLength - 9);
         }
+
         root.add(this.createPlayerInventoryPanel(), width, height);
         root.validate(this);
     }
