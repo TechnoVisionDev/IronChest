@@ -17,6 +17,7 @@ public class ModScreenHandlerType {
     public static ScreenHandlerType<ExtraChestScreenHandler> SILVER_CHEST;
     public static ScreenHandlerType<ExtraChestScreenHandler> CRYSTAL_CHEST;
     public static ScreenHandlerType<ExtraChestScreenHandler> OBSIDIAN_CHEST;
+    public static ScreenHandlerType<ExtraChestScreenHandler> HOLIDAY_CHEST;
 
     public static void registerScreenHandlers() {
         IRON_CHEST = ScreenHandlerRegistry.registerSimple(new Identifier(ExtraChests.MOD_ID, "iron_chest"), (syncId, inventory) -> new ExtraChestScreenHandler(IRON_CHEST, ExtraChestTypes.IRON, syncId, inventory, ScreenHandlerContext.EMPTY));
@@ -26,5 +27,6 @@ public class ModScreenHandlerType {
         SILVER_CHEST = ScreenHandlerRegistry.registerSimple(new Identifier(ExtraChests.MOD_ID, "silver_chest"), (syncId, inventory) -> new ExtraChestScreenHandler(SILVER_CHEST, ExtraChestTypes.SILVER, syncId, inventory, ScreenHandlerContext.EMPTY));
         CRYSTAL_CHEST = ScreenHandlerRegistry.registerSimple(new Identifier(ExtraChests.MOD_ID, "crystal_chest"), (syncId, inventory) -> new ExtraChestScreenHandler(CRYSTAL_CHEST, ExtraChestTypes.CRYSTAL, syncId, inventory, ScreenHandlerContext.EMPTY));
         OBSIDIAN_CHEST = ScreenHandlerRegistry.registerSimple(new Identifier(ExtraChests.MOD_ID, "obsidian_chest"), (syncId, inventory) -> new ExtraChestScreenHandler(OBSIDIAN_CHEST, ExtraChestTypes.OBSIDIAN, syncId, inventory, ScreenHandlerContext.EMPTY));
+        HOLIDAY_CHEST = ScreenHandlerRegistry.registerSimple(new Identifier(ExtraChests.MOD_ID, "holiday_chest"), (syncId, inventory) -> new ExtraChestScreenHandler(HOLIDAY_CHEST, ExtraChestTypes.HOLIDAY, syncId, inventory, ScreenHandlerContext.EMPTY));
     }
 }

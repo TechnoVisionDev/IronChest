@@ -13,7 +13,7 @@ public enum ExtraChestTypes {
     CRYSTAL(108, 12, 238, 276, new Identifier(ExtraChests.MOD_ID, "entity/chest/crystal_chest"), 256, 276),
     OBSIDIAN(108, 12, 238, 276, new Identifier(ExtraChests.MOD_ID,"entity/chest/obsidian_chest"), 256, 276),
     DIRT(1, 1, 184, 184, new Identifier(ExtraChests.MOD_ID, "entity/chest/dirt_chest"), 256, 256),
-    WOOD(0, 0, 0, 0, new Identifier(ExtraChests.MOD_ID, "entity/chest/wood_chest"), 0, 0);
+    HOLIDAY(27, 9, 0, 0, new Identifier("entity/chest/christmas"), 0, 0);
 
     private final String name;
     public final int size;

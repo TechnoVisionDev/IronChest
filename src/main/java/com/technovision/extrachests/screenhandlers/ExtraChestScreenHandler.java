@@ -35,15 +35,13 @@ public class ExtraChestScreenHandler extends SyncedGuiDescription {
                 counter++;
             }
         }
-        int height = 123;
-        if (chestType.size > 54) {
-            height += 18 * ((chestType.size - 54) / length);
-        }
+
+        int height = 15;
+        height += 18 * (chestType.size / length);
 
         int width = 0;
         if (chestType.rowLength > 9) {
             width = 9 * (chestType.rowLength - 9);
-            height -= 18;
         }
         root.add(this.createPlayerInventoryPanel(), width, height);
         root.validate(this);
