@@ -1,6 +1,7 @@
 package com.technovision.extrachests.registry;
 
 import com.technovision.extrachests.ExtraChests;
+import com.technovision.extrachests.blocks.blockentities.CrystalChestBlockEntity;
 import com.technovision.extrachests.blocks.blockentities.DiamondChestBlockEntity;
 import com.technovision.extrachests.blocks.blockentities.GoldChestBlockEntity;
 import com.technovision.extrachests.blocks.blockentities.IronChestBlockEntity;
@@ -13,7 +14,7 @@ public class ModBlockEntityType {
     public static final BlockEntityType<IronChestBlockEntity> IRON_CHEST = BlockEntityType.Builder.create(IronChestBlockEntity::new, ModBlocks.IRON_CHEST).build(null);
     public static final BlockEntityType<GoldChestBlockEntity> GOLD_CHEST = BlockEntityType.Builder.create(GoldChestBlockEntity::new, ModBlocks.GOLD_CHEST).build(null);
     public static final BlockEntityType<DiamondChestBlockEntity> DIAMOND_CHEST = BlockEntityType.Builder.create(DiamondChestBlockEntity::new, ModBlocks.DIAMOND_CHEST).build(null);
-    public static final BlockEntityType<DiamondChestBlockEntity> CRYSTAL_CHEST = BlockEntityType.Builder.create(DiamondChestBlockEntity::new, ModBlocks.CRYSTAL_CHEST).build(null);
+    public static final BlockEntityType<CrystalChestBlockEntity> CRYSTAL_CHEST = BlockEntityType.Builder.create(CrystalChestBlockEntity::new, ModBlocks.CRYSTAL_CHEST).build(null);
 
     public static void registerBlockEntities() {
         Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(ExtraChests.MOD_ID, "iron_chest"), IRON_CHEST);

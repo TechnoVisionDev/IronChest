@@ -9,20 +9,20 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
 
-public class DiamondChestBlockEntity extends GenericExtraChestBlockEntity {
+public class CrystalChestBlockEntity extends GenericExtraChestBlockEntity {
 
-    public DiamondChestBlockEntity() {
-        super(ModBlockEntityType.DIAMOND_CHEST, ExtraChestTypes.DIAMOND);
+    public CrystalChestBlockEntity() {
+        super(ModBlockEntityType.CRYSTAL_CHEST, ExtraChestTypes.CRYSTAL);
     }
 
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory inventory, PlayerEntity player) {
-        return new ExtraChestScreenHandler(ModScreenHandlerType.DIAMOND_CHEST, type, syncId, inventory, ScreenHandlerContext.create(world, pos));
+        return new ExtraChestScreenHandler(ModScreenHandlerType.CRYSTAL_CHEST, type, syncId, inventory, ScreenHandlerContext.create(world, pos));
     }
 
     @Override
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory inventory) {
-        return new ExtraChestScreenHandler(ModScreenHandlerType.DIAMOND_CHEST, type, syncId, inventory, ScreenHandlerContext.create(world, pos));
+        return new ExtraChestScreenHandler(ModScreenHandlerType.CRYSTAL_CHEST, type, syncId, inventory, ScreenHandlerContext.create(world, pos));
     }
 
 }
