@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"MMM",
+		"MSM",
+		"MMM"
+	],
+	"key": {
+		"M": {
+			"tag": "c:gold_ingots"
+		},
+		"S": {
+			"item": "extrachests:iron_chest"
+		}
+	},
+	"result": {
+		"item": "extrachests:gold_chest"
+	}
+}
