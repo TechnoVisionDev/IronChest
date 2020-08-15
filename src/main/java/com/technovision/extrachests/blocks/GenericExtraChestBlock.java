@@ -249,9 +249,7 @@ public class GenericExtraChestBlock extends BlockWithEntity implements Waterlogg
     public static DoubleBlockProperties.PropertyRetriever<GenericExtraChestBlockEntity, Float2FloatFunction> getAnimationProgressRetriever(final ChestAnimationProgress chestAnimationProgress) {
         return new DoubleBlockProperties.PropertyRetriever<GenericExtraChestBlockEntity, Float2FloatFunction>() {
             public Float2FloatFunction getFromBoth(GenericExtraChestBlockEntity chestBlockEntity, GenericExtraChestBlockEntity chestBlockEntity2) {
-                return (f) -> {
-                    return Math.max(chestBlockEntity.getAnimationProgress(f), chestBlockEntity2.getAnimationProgress(f));
-                };
+                return (f) -> Math.max(chestBlockEntity.getAnimationProgress(f), chestBlockEntity2.getAnimationProgress(f));
             }
 
             public Float2FloatFunction getFrom(GenericExtraChestBlockEntity chestBlockEntity) {

@@ -1,6 +1,5 @@
 package com.technovision.extrachests.client;
 
-import com.technovision.extrachests.ExtraChests;
 import com.technovision.extrachests.blocks.GenericExtraChestBlock;
 import com.technovision.extrachests.blocks.blockentities.GenericExtraChestBlockEntity;
 import it.unimi.dsi.fastutil.floats.Float2FloatFunction;
