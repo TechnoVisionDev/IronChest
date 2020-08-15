@@ -9,8 +9,8 @@ import net.minecraft.sound.BlockSoundGroup;
 public class IronChestBlock extends GenericExtraChestBlock {
     public IronChestBlock() {
         super(FabricBlockSettings.of(Material.METAL)
-                .hardness(3.5F)
-                .resistance(4.0F)
+                .hardness(3.0F)
+                .resistance(3.0F)
                 .sounds(BlockSoundGroup.METAL)
                 .breakByTool(FabricToolTags.PICKAXES, 0)
                 .requiresTool(),
