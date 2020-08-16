@@ -2,6 +2,7 @@ package com.technovision.extrachests.registry;
 
 import com.technovision.extrachests.ExtraChests;
 import com.technovision.extrachests.blocks.ExtraChestTypes;
+import com.technovision.extrachests.items.ExtraChestUpgradeType;
 import com.technovision.extrachests.items.UpgradeItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -22,15 +23,15 @@ public class ModItems {
     public static final Item DIRT_CHEST = new BlockItem(ModBlocks.DIRT_CHEST, new Item.Settings().group(ExtraChests.TAB));
 
     // Upgrade Items
-    public static final Item WOOD_IRON_UPGRADE = new UpgradeItem(ExtraChestTypes.IRON);
-    public static final Item WOOD_COPPER_UPGRADE = new UpgradeItem(ExtraChestTypes.COPPER);
-    public static final Item COPPER_SILVER_UPGRADE = new UpgradeItem(ExtraChestTypes.SILVER);
-    public static final Item COPPER_IRON_UPGRADE = new UpgradeItem(ExtraChestTypes.IRON);
-    public static final Item SILVER_GOLD_UPGRADE = new UpgradeItem(ExtraChestTypes.GOLD);
-    public static final Item IRON_GOLD_UPGRADE = new UpgradeItem(ExtraChestTypes.GOLD);
-    public static final Item GOLD_DIAMOND_UPGRADE = new UpgradeItem(ExtraChestTypes.DIAMOND);
-    public static final Item DIAMOND_CRYSTAL_UPGRADE = new UpgradeItem(ExtraChestTypes.CRYSTAL);
-    public static final Item DIAMOND_OBSIDIAN_UPGRADE = new UpgradeItem(ExtraChestTypes.OBSIDIAN);
+    public static final Item WOOD_IRON_UPGRADE = new UpgradeItem(ExtraChestUpgradeType.WOOD_TO_IRON);
+    public static final Item WOOD_COPPER_UPGRADE = new UpgradeItem(ExtraChestUpgradeType.WOOD_TO_COPPER);
+    public static final Item COPPER_SILVER_UPGRADE = new UpgradeItem(ExtraChestUpgradeType.COPPER_TO_SILVER);
+    public static final Item COPPER_IRON_UPGRADE = new UpgradeItem(ExtraChestUpgradeType.COPPER_TO_IRON);
+    public static final Item SILVER_GOLD_UPGRADE = new UpgradeItem(ExtraChestUpgradeType.SILVER_TO_GOLD);
+    public static final Item IRON_GOLD_UPGRADE = new UpgradeItem(ExtraChestUpgradeType.IRON_TO_GOLD);
+    public static final Item GOLD_DIAMOND_UPGRADE = new UpgradeItem(ExtraChestUpgradeType.GOLD_TO_DIAMOND);
+    public static final Item DIAMOND_CRYSTAL_UPGRADE = new UpgradeItem(ExtraChestUpgradeType.DIAMOND_TO_CRYSTAL);
+    public static final Item DIAMOND_OBSIDIAN_UPGRADE = new UpgradeItem(ExtraChestUpgradeType.DIAMOND_TO_OBSIDIAN);
 
     public static void registerItems() {
         Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "iron_chest"), IRON_CHEST);

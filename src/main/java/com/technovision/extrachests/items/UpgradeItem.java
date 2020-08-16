@@ -21,9 +21,9 @@ import net.minecraft.world.World;
 
 public class UpgradeItem extends Item {
 
-    ExtraChestTypes type;
+    ExtraChestUpgradeType type;
 
-    public UpgradeItem(ExtraChestTypes type) {
+    public UpgradeItem(ExtraChestUpgradeType type) {
         super(new Item.Settings().group(ExtraChests.TAB));
         this.type = type;
     }
@@ -38,15 +38,31 @@ public class UpgradeItem extends Item {
         if (entityPlayer == null) { return ActionResult.PASS; }
 
         BlockPos blockPos = context.getBlockPos();
-        BlockState chestState = world.getBlockState(blockPos);
-        if (!ExtraChestTypes.canUpgrade(type, chestState)) { return ActionResult.PASS; }
+        if (this.type.canUpgrade(ExtraChestTypes.WOOD)) {
+            if (!(world.getBlockState(blockPos).getBlock() instanceof ChestBlock)) {
+                return ActionResult.PASS;
+            }
+        }
+        else {
+            if (world.getBlockState(blockPos).getBlock().getDefaultState() != ExtraChestTypes.get(this.type.source).getDefaultState()) {
+                return ActionResult.PASS;
+            }
+        }
+
+        BlockEntity blockEntity = world.getBlockEntity(blockPos);
+
+        if (this.type.canUpgrade(ExtraChestTypes.WOOD)) {
+            if (!(blockEntity instanceof ChestBlockEntity)) {
+                return ActionResult.PASS;
+            }
+        }
 
         ItemStack itemStack = context.getStack();
-        BlockEntity blockEntity = world.getBlockEntity(blockPos);
         GenericExtraChestBlockEntity newChest;
         Text customName = null;
         DefaultedList<ItemStack> chestContents = DefaultedList.ofSize(27, ItemStack.EMPTY);
         Direction chestFacing = Direction.NORTH;
+        BlockState chestState = world.getBlockState(blockPos);
 
         if (blockEntity != null) {
             if (blockEntity instanceof GenericExtraChestBlockEntity) {
@@ -62,7 +78,7 @@ public class UpgradeItem extends Item {
                 chestContents = chest.getInvStackList();
                 chestFacing = chestState.get(GenericExtraChestBlock.FACING);
                 customName = chest.getCustomName();
-                newChest = this.type.makeEntity();
+                newChest = this.type.target.makeEntity();
 
                 if (newChest == null) {
                     return ActionResult.PASS;
@@ -86,14 +102,14 @@ public class UpgradeItem extends Item {
                 }
 
                 customName = chest.getCustomName();
-                newChest = this.type.makeEntity();
+                newChest = this.type.target.makeEntity();
             }
 
             blockEntity.toUpdatePacket();
             world.removeBlockEntity(blockPos);
             world.removeBlock(blockPos, false);
 
-            BlockState blockState = ExtraChestTypes.get(type).getDefaultState().with(GenericExtraChestBlock.FACING, chestFacing).with(GenericExtraChestBlock.WATERLOGGED, false);
+            BlockState blockState = ExtraChestTypes.get(type.target).getDefaultState().with(GenericExtraChestBlock.FACING, chestFacing).with(GenericExtraChestBlock.WATERLOGGED, false);
             world.setBlockState(blockPos, blockState, 3);
             world.updateListeners(blockPos, blockState, blockState, 3);
 

@@ -18,7 +18,8 @@ public enum ExtraChestTypes {
     CRYSTAL(108, 12, 238, 276, new Identifier(ExtraChests.MOD_ID, "entity/chest/crystal_chest"), 256, 276),
     OBSIDIAN(108, 12, 238, 276, new Identifier(ExtraChests.MOD_ID,"entity/chest/obsidian_chest"), 256, 276),
     DIRT(1, 1, 184, 184, new Identifier(ExtraChests.MOD_ID, "entity/chest/dirt_chest"), 256, 256),
-    HOLIDAY(27, 9, 0, 0, new Identifier("entity/chest/christmas"), 0, 0);
+    HOLIDAY(27, 9, 0, 0, new Identifier("entity/chest/christmas"), 0, 0),
+    WOOD(0, 0, 0, 0, new Identifier(ExtraChests.MOD_ID, ("entity/chest/dirt_chest")), 0, 0);
 
     public final int size;
     public final int rowLength;
@@ -89,26 +90,6 @@ public enum ExtraChestTypes {
                 return new HolidayChestBlockEntity();
             default:
                 return null;
-        }
-    }
-
-    public static boolean canUpgrade(ExtraChestTypes type, BlockState state) {
-        switch(type) {
-            case IRON:
-                return state == Blocks.CHEST.getDefaultState() || state == Blocks.TRAPPED_CHEST.getDefaultState() || state == ModBlocks.COPPER_CHEST.getDefaultState();
-            case GOLD:
-                return state == ModBlocks.IRON_CHEST.getDefaultState() || state == ModBlocks.SILVER_CHEST.getDefaultState();
-            case DIAMOND:
-                return state == ModBlocks.GOLD_CHEST.getDefaultState();
-            case COPPER:
-                return state == Blocks.CHEST.getDefaultState() || state == Blocks.TRAPPED_CHEST.getDefaultState();
-            case SILVER:
-                return state == ModBlocks.COPPER_CHEST.getDefaultState();
-            case CRYSTAL:
-            case OBSIDIAN:
-                return state == ModBlocks.DIAMOND_CHEST.getDefaultState();
-            default:
-                return false;
         }
     }
 }
