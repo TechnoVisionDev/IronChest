@@ -12,10 +12,10 @@ import net.minecraft.world.BlockView;
 public class GoldChestBlock extends GenericExtraChestBlock {
 
     public GoldChestBlock() {
-        super(FabricBlockSettings.of(Material.METAL)
+        super(FabricBlockSettings.of(Material.STONE)
                         .hardness(3.0F)
                         .resistance(3.0F)
-                        .sounds(BlockSoundGroup.METAL)
+                        .sounds(BlockSoundGroup.STONE)
                         .breakByTool(FabricToolTags.PICKAXES, 0)
                         .requiresTool(),
                 ExtraChestTypes.GOLD,

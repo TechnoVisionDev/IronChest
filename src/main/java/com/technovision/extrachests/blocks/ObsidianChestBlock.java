@@ -12,10 +12,10 @@ import net.minecraft.world.BlockView;
 public class ObsidianChestBlock extends GenericExtraChestBlock {
 
     public ObsidianChestBlock() {
-        super(FabricBlockSettings.of(Material.METAL)
+        super(FabricBlockSettings.of(Material.STONE)
                         .hardness(3.0F)
                         .resistance(10000.0F)
-                        .sounds(BlockSoundGroup.METAL)
+                        .sounds(BlockSoundGroup.STONE)
                         .breakByTool(FabricToolTags.PICKAXES, 0)
                         .requiresTool(),
                 ExtraChestTypes.OBSIDIAN,

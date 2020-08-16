@@ -12,10 +12,10 @@ import net.minecraft.world.BlockView;
 public class DirtChestBlock extends GenericExtraChestBlock {
 
     public DirtChestBlock() {
-        super(FabricBlockSettings.of(Material.SOIL)
+        super(FabricBlockSettings.of(Material.STONE)
                         .hardness(1.5F)
                         .resistance(1.5F)
-                        .sounds(BlockSoundGroup.GRAVEL),
+                        .sounds(BlockSoundGroup.STONE),
                 ExtraChestTypes.DIRT,
                 () -> ModBlockEntityType.DIRT_CHEST);
     }
