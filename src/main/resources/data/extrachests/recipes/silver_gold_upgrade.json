@@ -7,10 +7,10 @@
 	],
 	"key": {
 		"M": {
-			"tag": "c:iron_ingots"
+			"tag": "c:gold_ingots"
 		},
 		"S": {
-			"tag": "c:copper_ingots"
+			"tag": "c:silver_ingots"
 		},
 		"G": [
 			{
@@ -67,6 +67,6 @@
 		]
 	},
 	"result": {
-		"item": "extrachests:copper_silver_upgrade"
+		"item": "extrachests:silver_gold_upgrade"
 	}
 }

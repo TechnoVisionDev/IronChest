@@ -26,6 +26,8 @@ public class ModItems {
     public static final Item WOOD_COPPER_UPGRADE = new UpgradeItem(ExtraChestTypes.COPPER);
     public static final Item COPPER_SILVER_UPGRADE = new UpgradeItem(ExtraChestTypes.SILVER);
     public static final Item COPPER_IRON_UPGRADE = new UpgradeItem(ExtraChestTypes.IRON);
+    public static final Item SILVER_GOLD_UPGRADE = new UpgradeItem(ExtraChestTypes.GOLD);
+    public static final Item IRON_GOLD_UPGRADE = new UpgradeItem(ExtraChestTypes.GOLD);
 
     public static void registerItems() {
         Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "iron_chest"), IRON_CHEST);
@@ -42,5 +44,7 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "wood_copper_upgrade"), WOOD_COPPER_UPGRADE);
         Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "copper_silver_upgrade"), COPPER_SILVER_UPGRADE);
         Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "copper_iron_upgrade"), COPPER_IRON_UPGRADE);
+        Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "silver_gold_upgrade"), SILVER_GOLD_UPGRADE);
+        Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "iron_gold_upgrade"), IRON_GOLD_UPGRADE);
     }
 }
