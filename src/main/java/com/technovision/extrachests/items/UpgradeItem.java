@@ -4,7 +4,6 @@ import com.technovision.extrachests.ExtraChests;
 import com.technovision.extrachests.blocks.ExtraChestTypes;
 import com.technovision.extrachests.blocks.GenericExtraChestBlock;
 import com.technovision.extrachests.blocks.blockentities.GenericExtraChestBlockEntity;
-import com.technovision.extrachests.registry.ModBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ChestBlock;
 import net.minecraft.block.entity.BlockEntity;
@@ -32,17 +31,19 @@ public class UpgradeItem extends Item {
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
 
-        PlayerEntity entityPlayer = context.getPlayer();
-        BlockPos blockPos = context.getBlockPos();
         World world = context.getWorld();
-        ItemStack itemStack = context.getStack();
-
         if (world.isClient) { return ActionResult.PASS; }
 
+        PlayerEntity entityPlayer = context.getPlayer();
         if (entityPlayer == null) { return ActionResult.PASS; }
 
+        BlockPos blockPos = context.getBlockPos();
+        BlockState chestState = world.getBlockState(blockPos);
+        if (!ExtraChestTypes.canUpgrade(type, chestState)) { return ActionResult.PASS; }
+
+        ItemStack itemStack = context.getStack();
         BlockEntity blockEntity = world.getBlockEntity(blockPos);
-        GenericExtraChestBlockEntity newChest = null;
+        GenericExtraChestBlockEntity newChest;
         Text customName = null;
         DefaultedList<ItemStack> chestContents = DefaultedList.ofSize(27, ItemStack.EMPTY);
         Direction chestFacing = Direction.NORTH;
@@ -50,7 +51,6 @@ public class UpgradeItem extends Item {
         if (blockEntity != null) {
             if (blockEntity instanceof GenericExtraChestBlockEntity) {
                 GenericExtraChestBlockEntity chest = (GenericExtraChestBlockEntity) blockEntity;
-                BlockState chestState = world.getBlockState(blockPos);
 
                 if (GenericExtraChestBlockEntity.countViewers(world, blockPos.getX(), blockPos.getY(), blockPos.getZ()) > 0) {
                     return ActionResult.PASS;
@@ -70,7 +70,6 @@ public class UpgradeItem extends Item {
             }
             else if (blockEntity instanceof ChestBlockEntity) {
                 ChestBlockEntity chest = (ChestBlockEntity) blockEntity;
-                BlockState chestState = world.getBlockState(blockPos);
 
                 if (GenericExtraChestBlockEntity.countViewers(world, blockPos.getX(), blockPos.getY(), blockPos.getZ()) > 0) {
                     return ActionResult.PASS;
@@ -96,7 +95,6 @@ public class UpgradeItem extends Item {
 
             BlockState blockState = ExtraChestTypes.get(type).getDefaultState().with(GenericExtraChestBlock.FACING, chestFacing).with(GenericExtraChestBlock.WATERLOGGED, false);
             world.setBlockState(blockPos, blockState, 3);
-            world.setBlockEntity(blockPos, newChest);
             world.updateListeners(blockPos, blockState, blockState, 3);
 
             itemStack.decrement(1);

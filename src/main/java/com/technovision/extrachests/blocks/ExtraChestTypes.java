@@ -4,6 +4,7 @@ import com.technovision.extrachests.ExtraChests;
 import com.technovision.extrachests.blocks.blockentities.*;
 import com.technovision.extrachests.registry.ModBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 
@@ -19,7 +20,6 @@ public enum ExtraChestTypes {
     DIRT(1, 1, 184, 184, new Identifier(ExtraChests.MOD_ID, "entity/chest/dirt_chest"), 256, 256),
     HOLIDAY(27, 9, 0, 0, new Identifier("entity/chest/christmas"), 0, 0);
 
-    private final String name;
     public final int size;
     public final int rowLength;
     public final int xSize;
@@ -29,11 +29,6 @@ public enum ExtraChestTypes {
     public final int textureYSize;
 
     ExtraChestTypes(int size, int rowLength, int xSize, int ySize, Identifier texture, int textureXSize, int textureYSize) {
-        this(null, size, rowLength, xSize, ySize, texture, textureXSize, textureYSize);
-    }
-
-    ExtraChestTypes(String name, int size, int rowLength, int xSize, int ySize, Identifier texture, int textureXSize, int textureYSize) {
-        this.name = name;
         this.size = size;
         this.rowLength = rowLength;
         this.xSize = xSize;
@@ -65,6 +60,8 @@ public enum ExtraChestTypes {
                 return ModBlocks.OBSIDIAN_CHEST;
             case DIRT:
                 return ModBlocks.DIRT_CHEST;
+            case HOLIDAY:
+                return ModBlocks.HOLIDAY_CHEST;
             default:
                 return Blocks.CHEST;
         }
@@ -88,8 +85,30 @@ public enum ExtraChestTypes {
                 return new ObsidianChestBlockEntity();
             case DIRT:
                 return new DirtChestBlockEntity();
+            case HOLIDAY:
+                return new HolidayChestBlockEntity();
             default:
                 return null;
+        }
+    }
+
+    public static boolean canUpgrade(ExtraChestTypes type, BlockState state) {
+        switch(type) {
+            case IRON:
+                return state == Blocks.CHEST.getDefaultState() || state == Blocks.TRAPPED_CHEST.getDefaultState() || state == ModBlocks.COPPER_CHEST.getDefaultState();
+            case GOLD:
+                return state == ModBlocks.IRON_CHEST.getDefaultState() || state == ModBlocks.SILVER_CHEST.getDefaultState();
+            case DIAMOND:
+                return state == ModBlocks.GOLD_CHEST.getDefaultState();
+            case COPPER:
+                return state == Blocks.CHEST.getDefaultState() || state == Blocks.TRAPPED_CHEST.getDefaultState();
+            case SILVER:
+                return state == ModBlocks.COPPER_CHEST.getDefaultState();
+            case CRYSTAL:
+            case OBSIDIAN:
+                return state == ModBlocks.DIAMOND_CHEST.getDefaultState();
+            default:
+                return false;
         }
     }
 }
