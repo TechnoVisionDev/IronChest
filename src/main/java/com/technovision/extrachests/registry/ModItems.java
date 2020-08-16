@@ -28,6 +28,9 @@ public class ModItems {
     public static final Item COPPER_IRON_UPGRADE = new UpgradeItem(ExtraChestTypes.IRON);
     public static final Item SILVER_GOLD_UPGRADE = new UpgradeItem(ExtraChestTypes.GOLD);
     public static final Item IRON_GOLD_UPGRADE = new UpgradeItem(ExtraChestTypes.GOLD);
+    public static final Item GOLD_DIAMOND_UPGRADE = new UpgradeItem(ExtraChestTypes.DIAMOND);
+    public static final Item DIAMOND_CRYSTAL_UPGRADE = new UpgradeItem(ExtraChestTypes.CRYSTAL);
+    public static final Item DIAMOND_OBSIDIAN_UPGRADE = new UpgradeItem(ExtraChestTypes.OBSIDIAN);
 
     public static void registerItems() {
         Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "iron_chest"), IRON_CHEST);
@@ -46,5 +49,8 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "copper_iron_upgrade"), COPPER_IRON_UPGRADE);
         Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "silver_gold_upgrade"), SILVER_GOLD_UPGRADE);
         Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "iron_gold_upgrade"), IRON_GOLD_UPGRADE);
+        Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "gold_diamond_upgrade"), GOLD_DIAMOND_UPGRADE);
+        Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "diamond_crystal_upgrade"), DIAMOND_CRYSTAL_UPGRADE);
+        Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "diamond_obsidian_upgrade"), DIAMOND_OBSIDIAN_UPGRADE);
     }
 }
