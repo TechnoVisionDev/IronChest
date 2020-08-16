@@ -1,6 +1,10 @@
 package com.technovision.extrachests.blocks;
 
 import com.technovision.extrachests.ExtraChests;
+import com.technovision.extrachests.blocks.blockentities.*;
+import com.technovision.extrachests.registry.ModBlocks;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 
 public enum ExtraChestTypes {
@@ -41,5 +45,51 @@ public enum ExtraChestTypes {
 
     public int getRowCount() {
         return this.size / this.rowLength;
+    }
+
+    public static Block get(ExtraChestTypes type) {
+        switch (type) {
+            case IRON:
+                return ModBlocks.IRON_CHEST;
+            case GOLD:
+                return ModBlocks.GOLD_CHEST;
+            case DIAMOND:
+                return ModBlocks.DIAMOND_CHEST;
+            case COPPER:
+                return ModBlocks.COPPER_CHEST;
+            case SILVER:
+                return ModBlocks.SILVER_CHEST;
+            case CRYSTAL:
+                return ModBlocks.CRYSTAL_CHEST;
+            case OBSIDIAN:
+                return ModBlocks.OBSIDIAN_CHEST;
+            case DIRT:
+                return ModBlocks.DIRT_CHEST;
+            default:
+                return Blocks.CHEST;
+        }
+    }
+
+    public GenericExtraChestBlockEntity makeEntity() {
+        switch (this) {
+            case IRON:
+                return new IronChestBlockEntity();
+            case GOLD:
+                return new GoldChestBlockEntity();
+            case DIAMOND:
+                return new DiamondChestBlockEntity();
+            case COPPER:
+                return new CopperChestBlockEntity();
+            case SILVER:
+                return new SilverChestBlockEntity();
+            case CRYSTAL:
+                return new CrystalChestBlockEntity();
+            case OBSIDIAN:
+                return new ObsidianChestBlockEntity();
+            case DIRT:
+                return new DirtChestBlockEntity();
+            default:
+                return null;
+        }
     }
 }

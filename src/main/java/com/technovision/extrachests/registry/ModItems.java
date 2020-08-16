@@ -1,6 +1,8 @@
 package com.technovision.extrachests.registry;
 
 import com.technovision.extrachests.ExtraChests;
+import com.technovision.extrachests.blocks.ExtraChestTypes;
+import com.technovision.extrachests.items.UpgradeItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
@@ -8,6 +10,7 @@ import net.minecraft.util.registry.Registry;
 
 public class ModItems {
 
+    // Chest Items
     public static final Item IRON_CHEST = new BlockItem(ModBlocks.IRON_CHEST, new Item.Settings().group(ExtraChests.TAB));
     public static final Item GOLD_CHEST = new BlockItem(ModBlocks.GOLD_CHEST, new Item.Settings().group(ExtraChests.TAB));
     public static final Item DIAMOND_CHEST = new BlockItem(ModBlocks.DIAMOND_CHEST, new Item.Settings().group(ExtraChests.TAB));
@@ -17,6 +20,9 @@ public class ModItems {
     public static final Item OBSIDIAN_CHEST = new BlockItem(ModBlocks.OBSIDIAN_CHEST, new Item.Settings().group(ExtraChests.TAB));
     public static final Item HOLIDAY_CHEST = new BlockItem(ModBlocks.HOLIDAY_CHEST, new Item.Settings().group(ExtraChests.TAB));
     public static final Item DIRT_CHEST = new BlockItem(ModBlocks.DIRT_CHEST, new Item.Settings().group(ExtraChests.TAB));
+
+    // Upgrade Items
+    public static final Item WOOD_IRON_UPGRADE = new UpgradeItem(ExtraChestTypes.IRON);
 
     public static void registerItems() {
         Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "iron_chest"), IRON_CHEST);
@@ -28,5 +34,8 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "obsidian_chest"), OBSIDIAN_CHEST);
         Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "holiday_chest"), HOLIDAY_CHEST);
         Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "dirt_chest"), DIRT_CHEST);
+
+        Registry.register(Registry.ITEM, new Identifier(ExtraChests.MOD_ID, "wood_iron_upgrade"), WOOD_IRON_UPGRADE);
+
     }
 }

@@ -16,9 +16,8 @@ public class ExtraChestScreenHandler extends SyncedGuiDescription {
 
     public ExtraChestScreenHandler(ScreenHandlerType<?> type, ExtraChestTypes chestType, int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(type, syncId, playerInventory, getBlockInventory(context, chestType.size), null);
-        inventory = getBlockInventory(context, chestType.size);
+        inventory = blockInventory;
         inventory.onOpen(playerInventory.player);
-
         int rows = chestType.getRowCount();
         int length = chestType.rowLength;
 

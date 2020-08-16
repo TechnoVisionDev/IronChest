@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"MMM",
+		"MSM",
+		"MMM"
+	],
+	"key": {
+		"M": {
+			"tag": "c:iron_ingots"
+		},
+		"S": {
+			"tag": "minecraft:planks"
+		}
+	},
+	"result": {
+		"item": "extrachests:wood_iron_upgrade"
+	}
+}

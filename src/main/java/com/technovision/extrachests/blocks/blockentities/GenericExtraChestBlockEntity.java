@@ -66,12 +66,12 @@ public class GenericExtraChestBlockEntity extends LootableContainerBlockEntity i
     }
 
     @Override
-    protected DefaultedList<ItemStack> getInvStackList() {
+    public DefaultedList<ItemStack> getInvStackList() {
         return chestContents;
     }
 
     @Override
-    protected void setInvStackList(DefaultedList<ItemStack> list) {
+    public void setInvStackList(DefaultedList<ItemStack> list) {
         this.chestContents = DefaultedList.<ItemStack>ofSize(inventorySize, ItemStack.EMPTY);
 
         for (int i = 0; i < list.size(); i++) {
@@ -163,12 +163,12 @@ public class GenericExtraChestBlockEntity extends LootableContainerBlockEntity i
 
     public static int tickViewerCount(World world, LockableContainerBlockEntity blockEntity, int ticksOpen, int x, int y, int z, int viewerCount) {
         if (!world.isClient && viewerCount != 0 && (ticksOpen + x + y + z) % 200 == 0) {
-            viewerCount = countViewers(world, blockEntity, x, y, z);
+            viewerCount = countViewers(world, x, y, z);
         }
         return viewerCount;
     }
 
-    public static int countViewers(World world, LockableContainerBlockEntity blockEntity, int x, int y, int z) {
+    public static int countViewers(World world, int x, int y, int z) {
         int i = 0;
         for (PlayerEntity playerentity : world.getNonSpectatingEntities(PlayerEntity.class, new Box((double) ((float) x - 5.0F), (double) ((float) y - 5.0F), (double) ((float) z - 5.0F), (double) ((float) (x + 1) + 5.0F), (double) ((float) (y + 1) + 5.0F), (double) ((float) (z + 1) + 5.0F)))) {
             if (playerentity.currentScreenHandler instanceof ExtraChestScreenHandler) {
