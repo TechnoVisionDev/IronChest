@@ -1,5 +1,5 @@
 ## Extra Chests - Fabric Mod
-Extra Chests is a complete Fabric port of the original Iron Chest mod. It adds a variety of new chests to the game that can each be upgraded. Check out the mod [here](https://www.curseforge.com/minecraft/mc-mods/extrachests)!
+Extra Chests is a complete Fabric port of the original Iron Chest mod. It adds a variety of new chests to the game with different storage sizes. Each chest can each be upgraded over time as you collect and store more materials! Check out and download the mod [here](https://www.curseforge.com/minecraft/mc-mods/extrachests)!
 
 ### Connect With Me:
 
