@@ -1,0 +1,26 @@
+{
+  "_comment": "Blocks",
+  "block.ironchest.iron_chest": "Báu de Ferro",
+  "block.ironchest.gold_chest": "Báu de Ouro",
+  "block.ironchest.diamond_chest": "Báu de Diamante",
+  "block.ironchest.copper_chest": "Báu de Cobre",
+  "block.ironchest.silver_chest": "Báu de Prata",
+  "block.ironchest.crystal_chest": "Báu de Cristal",
+  "block.ironchest.obsidian_chest": "Báu de Obsidiana",
+  "block.ironchest.holiday_chest": "Báu de Férias",
+  "block.ironchest.dirt_chest": "Báu de Terra",
+  
+  "_comment": "Upgrades",
+  "item.ironchest.iron_gold_upgrade": "Atualização de Báu de Ferro para Ouro",
+  "item.ironchest.gold_diamond_upgrade": "Atualização de Báu de  para Diamante",
+  "item.ironchest.copper_silver_upgrade": "Atualização de Báu de Cobre para Prata",
+  "item.ironchest.silver_gold_upgrade": "Atualização de Prata Báu de para Ouro",
+  "item.ironchest.copper_iron_upgrade": "Atualização de Cobre Báu de para Ferro",
+  "item.ironchest.diamond_crystal_upgrade": "Atualização de Báu de Diamante para Cristal",
+  "item.ironchest.wood_iron_upgrade": "Atualização de Madeira Báu de para Ferro",
+  "item.ironchest.wood_copper_upgrade": "Atualização de Báu de Madeira para Cobre",
+  "item.ironchest.diamond_obsidian_upgrade": "Atualização de Báu de Diamante para Obsidiana",
+  
+  "_comment": "Item Groups",
+  "itemGroup.ironchest.ironchest": "Baús de ferro"
+}

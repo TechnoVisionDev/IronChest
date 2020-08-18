@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "extrachests",
+  "id": "ironchest",
   "version": "${version}",
 
   "name": "Iron Chests",
@@ -15,15 +15,15 @@
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/extrachests/icon.png",
+  "icon": "assets/ironchest/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.technovision.extrachests.ExtraChests"
+      "com.technovision.ironchest.IronChests"
     ],
     "client": [
-      "com.technovision.extrachests.ExtraChestsClient"
+      "com.technovision.ironchest.IronChestsClient"
     ]
   },
   "mixins": [

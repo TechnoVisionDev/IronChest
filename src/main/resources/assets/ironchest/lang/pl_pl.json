@@ -1,0 +1,26 @@
+{
+  "_comment": "Blocks",
+  "block.ironchest.iron_chest": "Żelazna skrzynia",
+  "block.ironchest.gold_chest": "Złota skrzynia",
+  "block.ironchest.diamond_chest": "Diamentowa skrzynia",
+  "block.ironchest.copper_chest": "Miedziana skrzynia",
+  "block.ironchest.silver_chest": "Srebrna skrzynia",
+  "block.ironchest.crystal_chest": "Kryształowa skrzynia",
+  "block.ironchest.obsidian_chest": "Obsydianowa skrzynia",
+  "block.ironchest.holiday_chest": "Holiday Chest",
+  "block.ironchest.dirt_chest": "Dirt Chest",
+  
+  "_comment": "Upgrades",
+  "item.ironchest.iron_gold_upgrade": "Ulepszenie żelaznej skrzyni na złotą",
+  "item.ironchest.gold_diamond_upgrade": "Ulepszenie złotej skrzyni na diamentową",
+  "item.ironchest.copper_silver_upgrade": "Ulepszenie miedzianej skrzyni na srebrną",
+  "item.ironchest.silver_gold_upgrade": "Ulepszenie srebrnej skrzyni na złotą",
+  "item.ironchest.copper_iron_upgrade": "Ulepszenie miedzianej skrzyni na żelazną",
+  "item.ironchest.diamond_crystal_upgrade": "Ulepszenie diamentowej skrzyni na kryształową",
+  "item.ironchest.wood_iron_upgrade": "Ulepszenie drewnianej skrzyni na żelazną",
+  "item.ironchest.wood_copper_upgrade": "Ulepszenie drewnianej skrzyni na miedzianą",
+  "item.ironchest.diamond_obsidian_upgrade": "Ulepszenie diamentowej skrzyni na obsydianową",
+  
+  "_comment": "Item Groups",
+  "itemGroup.ironchest.ironchest": "Iron Chests"
+}

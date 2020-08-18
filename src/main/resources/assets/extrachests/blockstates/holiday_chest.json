@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "facing=north": { "model": "extrachests:block/holiday_chest" },
-        "facing=east":  { "model": "extrachests:block/holiday_chest", "y":  90},
-        "facing=south": { "model": "extrachests:block/holiday_chest", "y": 180 },
-        "facing=west":  { "model": "extrachests:block/holiday_chest", "y": 270 }
-    }
-}

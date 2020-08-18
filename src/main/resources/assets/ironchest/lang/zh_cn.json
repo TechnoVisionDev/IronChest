@@ -1,0 +1,26 @@
+{
+  "_comment": "Blocks",
+  "block.ironchest.iron_chest": "铁箱子",
+  "block.ironchest.gold_chest": "金箱子",
+  "block.ironchest.diamond_chest": "钻石箱子",
+  "block.ironchest.copper_chest": "铜箱子",
+  "block.ironchest.silver_chest": "银箱子",
+  "block.ironchest.crystal_chest": "水晶箱子",
+  "block.ironchest.obsidian_chest": "黑曜石箱子",
+  "block.ironchest.holiday_chest": "圣诞节箱子",
+  "block.ironchest.dirt_chest": "泥箱子",
+  
+  "_comment": "Upgrades",
+  "item.ironchest.iron_gold_upgrade": "升级：铁→金",
+  "item.ironchest.gold_diamond_upgrade": "升级：金→钻石",
+  "item.ironchest.copper_silver_upgrade": "升级：铜→银",
+  "item.ironchest.silver_gold_upgrade": "升级：银→金",
+  "item.ironchest.copper_iron_upgrade": "升级：铜→铁",
+  "item.ironchest.diamond_crystal_upgrade": "升级：钻石→水晶",
+  "item.ironchest.wood_iron_upgrade": "升级：木→铁",
+  "item.ironchest.wood_copper_upgrade": "升级：木→铜",
+  "item.ironchest.diamond_obsidian_upgrade": "升级：钻石→黑曜石",
+  
+  "_comment": "Item Groups",
+  "itemGroup.ironchest.ironchest": "铁箱子"
+}
