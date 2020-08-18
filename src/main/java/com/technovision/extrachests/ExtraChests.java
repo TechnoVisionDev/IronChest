@@ -13,6 +13,7 @@ import net.minecraft.util.Identifier;
 public class ExtraChests implements ModInitializer {
 
     public static final String MOD_ID = "extrachests";
+    public static final Identifier UPDATE_INV_PACKET_ID = new Identifier(MOD_ID, "update");
 
     @Override
     public void onInitialize() {

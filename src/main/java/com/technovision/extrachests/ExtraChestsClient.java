@@ -1,5 +1,6 @@
 package com.technovision.extrachests;
 
+import com.technovision.extrachests.blocks.blockentities.CrystalChestBlockEntity;
 import com.technovision.extrachests.client.ExtraChestBlockEntityRenderer;
 import com.technovision.extrachests.screenhandlers.ExtraChestScreenHandler;
 import com.technovision.extrachests.registry.ModBlockEntityType;
@@ -9,11 +10,19 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
+import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.TexturedRenderLayers;
 
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.util.math.BlockPos;
 
 public class ExtraChestsClient implements ClientModInitializer {
+
+    public static ItemStack stack = new ItemStack(Items.AIR);
 
     @Override
     public void onInitializeClient() {
@@ -49,6 +58,18 @@ public class ExtraChestsClient implements ClientModInitializer {
             registry.register(new Identifier(ExtraChests.MOD_ID, "entity/chest/obsidian_chest"));
             registry.register(new Identifier(ExtraChests.MOD_ID, "entity/chest/dirt_chest"));
         });
-    }
 
+        ClientSidePacketRegistry.INSTANCE.register(ExtraChests.UPDATE_INV_PACKET_ID,
+                (packetContext, attachedData) -> {
+                    BlockPos pos = attachedData.readBlockPos();
+                    DefaultedList<ItemStack> inv = DefaultedList.ofSize(12, ItemStack.EMPTY);
+                    for (int i = 0; i < 12; i++) {
+                        inv.set(i, attachedData.readItemStack());
+                    }
+                    packetContext.getTaskQueue().execute(() -> {
+                        CrystalChestBlockEntity blockEntity = (CrystalChestBlockEntity) MinecraftClient.getInstance().world.getBlockEntity(pos);
+                        blockEntity.setInvStackList(inv);
+                    });
+                });
+    }
 }
