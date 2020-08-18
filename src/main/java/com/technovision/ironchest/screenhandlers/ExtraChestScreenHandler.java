@@ -7,8 +7,13 @@ import io.github.cottonmc.cotton.gui.widget.WPlainPanel;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.screen.slot.Slot;
+
+import java.util.function.Predicate;
 
 public class ExtraChestScreenHandler extends SyncedGuiDescription {
 
@@ -28,6 +33,7 @@ public class ExtraChestScreenHandler extends SyncedGuiDescription {
         int counter = 0;
         if (chestType.rowLength == 1) {
             itemSlot = WItemSlot.of(blockInventory, 0);
+            itemSlot.setFilter(stack -> stack.getItem() == Items.DIRT);
             root.add(itemSlot, (18 * 4), 12);
         } else {
             for (int j = 0; j < rows; j++) {
@@ -50,6 +56,14 @@ public class ExtraChestScreenHandler extends SyncedGuiDescription {
         root.add(this.createPlayerInventoryPanel(), width, height);
         root.validate(this);
     }
+
+
+    @Override
+    public boolean canInsertIntoSlot(ItemStack stack, Slot slot) {
+        return stack.getItem() == Items.DIRT;
+    }
+
+
 
     @Override
     public void close(PlayerEntity player) {
