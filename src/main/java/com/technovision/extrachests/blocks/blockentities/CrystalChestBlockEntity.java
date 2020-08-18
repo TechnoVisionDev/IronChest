@@ -11,11 +11,14 @@ import net.fabricmc.fabric.api.server.PlayerStream;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.util.collection.DefaultedList;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
 public class CrystalChestBlockEntity extends GenericExtraChestBlockEntity {
@@ -25,7 +28,7 @@ public class CrystalChestBlockEntity extends GenericExtraChestBlockEntity {
 
     public CrystalChestBlockEntity() {
         super(ModBlockEntityType.CRYSTAL_CHEST, ExtraChestTypes.CRYSTAL);
-        topStacks = DefaultedList.ofSize(8, ItemStack.EMPTY);
+        topStacks = DefaultedList.ofSize(12, ItemStack.EMPTY);
         inventoryTouched = true;
     }
 
@@ -36,12 +39,29 @@ public class CrystalChestBlockEntity extends GenericExtraChestBlockEntity {
             Stream<PlayerEntity> watchingPlayers = PlayerStream.watching(world, pos);
             PacketByteBuf passedData = new PacketByteBuf(Unpooled.buffer());
             passedData.writeBlockPos(pos);
-            DefaultedList<ItemStack> inv = getInventory();
+            getTopStacks();
             for (int i = 0; i < 12; i++) {
-                passedData.writeItemStack(inv.get(i));
+                passedData.writeItemStack(topStacks.get(i));
             }
             watchingPlayers.forEach(player -> ServerSidePacketRegistry.INSTANCE.sendToPlayer(player, ExtraChests.UPDATE_INV_PACKET_ID, passedData));
             inventoryTouched = false;
+            topStacks.clear();
+        }
+    }
+
+    private void getTopStacks() {
+        int startIndex = 0;
+        for (int i = 0; i < 12; i++) {
+            DefaultedList<ItemStack> inv = getInventory();
+            for (int j = startIndex; j < inv.size(); j++) {
+                ItemStack stack = inv.get(j);
+                if (stack.getItem() != Items.AIR) {
+                    startIndex = j+1;
+                    topStacks.set(i, stack);
+                    if (startIndex > inv.size()) { return; }
+                    break;
+                }
+            }
         }
     }
 

@@ -59,6 +59,7 @@ public class ExtraChestsClient implements ClientModInitializer {
             registry.register(new Identifier(ExtraChests.MOD_ID, "entity/chest/dirt_chest"));
         });
 
+        // Crystal Chest Rendering Packets
         ClientSidePacketRegistry.INSTANCE.register(ExtraChests.UPDATE_INV_PACKET_ID,
                 (packetContext, attachedData) -> {
                     BlockPos pos = attachedData.readBlockPos();
