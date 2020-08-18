@@ -7,7 +7,7 @@
   "block.extrachests.silver_chest": "银箱子",
   "block.extrachests.crystal_chest": "水晶箱子",
   "block.extrachests.obsidian_chest": "黑曜石箱子",
-  "block.extrachests.holiday_chest": "Holiday Chest",
+  "block.extrachests.holiday_chest": "节日箱子",
   "block.extrachests.dirt_chest": "泥箱子",
   
   "_comment": "Upgrades",
@@ -22,5 +22,5 @@
   "item.extrachests.diamond_obsidian_upgrade": "升级：钻石>黑曜石",
   
   "_comment": "Item Groups",
-  "itemGroup.extrachests.extrachests": "Extra Chests"
+  "itemGroup.extrachests.extrachests": "更多箱子"
 }
