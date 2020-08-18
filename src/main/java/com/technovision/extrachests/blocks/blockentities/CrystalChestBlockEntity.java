@@ -21,30 +21,50 @@ import java.util.stream.Stream;
 public class CrystalChestBlockEntity extends GenericExtraChestBlockEntity {
 
     private DefaultedList<ItemStack> topStacks;
+    private boolean inventoryTouched;
 
     public CrystalChestBlockEntity() {
         super(ModBlockEntityType.CRYSTAL_CHEST, ExtraChestTypes.CRYSTAL);
         topStacks = DefaultedList.ofSize(8, ItemStack.EMPTY);
+        inventoryTouched = true;
     }
 
     @Override
-    public void onOpen(PlayerEntity playerEntity) {
-        if (!playerEntity.isSpectator()) {
-            if (this.numPlayersUsing < 0) {
-                this.numPlayersUsing = 0;
+    public void tick() {
+        super.tick();
+        if (!this.world.isClient && this.inventoryTouched) {
+            Stream<PlayerEntity> watchingPlayers = PlayerStream.watching(world, pos);
+            PacketByteBuf passedData = new PacketByteBuf(Unpooled.buffer());
+            passedData.writeBlockPos(pos);
+            DefaultedList<ItemStack> inv = getInventory();
+            for (int i = 0; i < 12; i++) {
+                passedData.writeItemStack(inv.get(i));
             }
-            ++this.numPlayersUsing;
-            this.onInvOpenOrClose();
+            watchingPlayers.forEach(player -> ServerSidePacketRegistry.INSTANCE.sendToPlayer(player, ExtraChests.UPDATE_INV_PACKET_ID, passedData));
+            inventoryTouched = false;
         }
-        Stream<PlayerEntity> watchingPlayers = PlayerStream.watching(world,pos);
-        PacketByteBuf passedData = new PacketByteBuf(Unpooled.buffer());
-        passedData.writeBlockPos(pos);
-        DefaultedList<ItemStack> inv = getInvStackList();
-        for (int i = 0; i < 12; i++) {
-            passedData.writeItemStack(inv.get(i));
-        }
-        watchingPlayers.forEach(player ->
-                ServerSidePacketRegistry.INSTANCE.sendToPlayer(player, ExtraChests.UPDATE_INV_PACKET_ID, passedData));
+    }
+
+    private DefaultedList<ItemStack> getInventory() {
+        return super.getInvStackList();
+    }
+
+    @Override
+    public DefaultedList<ItemStack> getInvStackList() {
+        this.inventoryTouched = true;
+        return super.getInvStackList();
+    }
+
+    @Override
+    public void setInvStackList(DefaultedList<ItemStack> list) {
+        super.setInvStackList(list);
+        this.inventoryTouched = true;
+    }
+
+    @Override
+    public void onClose(PlayerEntity player) {
+        super.onClose(player);
+        this.inventoryTouched = true;
     }
 
     @Override
