@@ -1,0 +1,37 @@
+{
+  "_comment": "Blocks",
+  "block.extrachests.iron_chest": "Báu de Ferro",
+  "block.extrachests.gold_chest": "Báu de Ouro",
+  "block.extrachests.diamond_chest": "Báu de Diamante",
+  "block.extrachests.copper_chest": "Báu de Cobre",
+  "block.extrachests.silver_chest": "Báu de Prata",
+  "block.extrachests.crystal_chest": "Báu de Cristal",
+  "block.extrachests.obsidian_chest": "Báu de Obsidiana",
+  "block.extrachests.holiday_chest": "Báu de Férias",
+  "block.extrachests.dirt_chest": "Báu de Terra",
+  
+  "_comment": "Upgrades",
+  "item.extrachests.iron_gold_upgrade": "Atualização de Báu de Ferro para Ouro",
+  "item.extrachests.gold_diamond_upgrade": "Atualização de Báu de  para Diamante",
+  "item.extrachests.copper_silver_upgrade": "Atualização de Báu de Cobre para Prata",
+  "item.extrachests.silver_gold_upgrade": "Atualização de Prata Báu de para Ouro",
+  "item.extrachests.copper_iron_upgrade": "Atualização de Cobre Báu de para Ferro",
+  "item.extrachests.diamond_crystal_upgrade": "Atualização de Báu de Diamante para Cristal",
+  "item.extrachests.wood_iron_upgrade": "Atualização de Madeira Báu de para Ferro",
+  "item.extrachests.wood_copper_upgrade": "Atualização de Báu de Madeira para Cobre",
+  "item.extrachests.diamond_obsidian_upgrade": "Atualização de Báu de Diamante para Obsidiana",
+
+  "_comment": "Containers",
+  "extrachests.container.iron_chest": "Báu de Ferro",
+  "extrachests.container.gold_chest": "Báu de Ouro",
+  "extrachests.container.diamond_chest": "Báu de Diamante",
+  "extrachests.container.copper_chest": "Báu de Cobre",
+  "extrachests.container.silver_chest": "Báu de Prata",
+  "extrachests.container.crystal_chest": "Báu de Cristal",
+  "extrachests.container.obsidian_chest": "Báu de Obsidiana",
+  "extrachests.container.holiday_chest": "Báu de Férias",
+  "extrachests.container.dirt_chest": "Báu de Terra",
+  
+  "_comment": "Item Groups",
+  "itemGroup.extrachests.extrachests": "Báus extras"
+}
