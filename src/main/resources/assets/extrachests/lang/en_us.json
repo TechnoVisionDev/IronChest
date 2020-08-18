@@ -20,17 +20,6 @@
   "item.extrachests.wood_iron_upgrade": "Wood to Iron Chest Upgrade",
   "item.extrachests.wood_copper_upgrade": "Wood to Copper Chest Upgrade",
   "item.extrachests.diamond_obsidian_upgrade": "Diamond to Obsidian Chest Upgrade",
-
-  "_comment": "Containers",
-  "extrachests.container.iron_chest": "Iron Chest",
-  "extrachests.container.gold_chest": "Gold Chest",
-  "extrachests.container.diamond_chest": "Diamond Chest",
-  "extrachests.container.copper_chest": "Copper Chest",
-  "extrachests.container.silver_chest": "Silver Chest",
-  "extrachests.container.crystal_chest": "Crystal Chest",
-  "extrachests.container.obsidian_chest": "Obsidian Chest",
-  "extrachests.container.holiday_chest": "Holiday Chest",
-  "extrachests.container.dirt_chest": "Dirt Chest",
   
   "_comment": "Item Groups",
   "itemGroup.extrachests.extrachests": "Extra Chests"

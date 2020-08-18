@@ -20,17 +20,6 @@
   "item.extrachests.wood_iron_upgrade": "Atualização de Madeira Báu de para Ferro",
   "item.extrachests.wood_copper_upgrade": "Atualização de Báu de Madeira para Cobre",
   "item.extrachests.diamond_obsidian_upgrade": "Atualização de Báu de Diamante para Obsidiana",
-
-  "_comment": "Containers",
-  "extrachests.container.iron_chest": "Báu de Ferro",
-  "extrachests.container.gold_chest": "Báu de Ouro",
-  "extrachests.container.diamond_chest": "Báu de Diamante",
-  "extrachests.container.copper_chest": "Báu de Cobre",
-  "extrachests.container.silver_chest": "Báu de Prata",
-  "extrachests.container.crystal_chest": "Báu de Cristal",
-  "extrachests.container.obsidian_chest": "Báu de Obsidiana",
-  "extrachests.container.holiday_chest": "Báu de Férias",
-  "extrachests.container.dirt_chest": "Báu de Terra",
   
   "_comment": "Item Groups",
   "itemGroup.extrachests.extrachests": "Báus extras"

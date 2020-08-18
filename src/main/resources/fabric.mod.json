@@ -3,14 +3,15 @@
   "id": "extrachests",
   "version": "${version}",
 
-  "name": "Extra Chests",
-  "description": "Adds advanced storage options!",
+  "name": "Iron Chests",
+  "description": "A complete Fabric port of the original Iron Chest mod. It adds a variety of new chests to the game with varying storage sizes and unique features. Each chest can each be upgraded over time as you collect and store more materials, adding a new system of progression to the game! ",
   "authors": [
-    "TechnoVision"
+    "TechnoVision",
+    "cpw"
   ],
   "contact": {
-    "homepage": "",
-    "sources": ""
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/iron-chests-fabric",
+    "sources": "https://github.com/TechnoVisionDev/IronChest"
   },
 
   "license": "CC0-1.0",
