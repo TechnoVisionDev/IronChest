@@ -17,6 +17,7 @@ public class IronChests implements ModInitializer {
 
     @Override
     public void onInitialize() {
+
         ModBlockEntityType.registerBlockEntities();
         ModBlocks.registerBlocks();
         ModItems.registerItems();

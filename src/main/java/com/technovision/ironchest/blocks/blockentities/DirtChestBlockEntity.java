@@ -4,7 +4,6 @@ import com.technovision.ironchest.blocks.ExtraChestTypes;
 import com.technovision.ironchest.registry.ModBlockEntityType;
 import com.technovision.ironchest.registry.ModScreenHandlerType;
 import com.technovision.ironchest.screenhandlers.ExtraChestScreenHandler;
-import net.minecraft.client.resource.language.I18n;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
@@ -12,8 +11,8 @@ import net.minecraft.item.Items;
 import net.minecraft.nbt.*;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
+import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Language;
 
 public class DirtChestBlockEntity extends GenericIronChestBlockEntity {
 
@@ -41,24 +40,19 @@ public class DirtChestBlockEntity extends GenericIronChestBlockEntity {
     private static void createBookData() {
         CompoundTag tag = guideBook.getOrCreateTag();
 
-        tag.putString("title", Language.getInstance().get("book.ironchest.guidebook.title"));
+        tag.putString("title", "How to Use Your DirtChest 9000!");
         tag.putString("author", "TechnoVision");
 
         ListTag pages = new ListTag();
-        pages.add(StringTag.of(getPage("book.ironchest.guidebook.page1")));
-        pages.add(StringTag.of(getPage("book.ironchest.guidebook.page2")));
-        pages.add(StringTag.of(getPage("book.ironchest.guidebook.page3")));
-        pages.add(StringTag.of(getPage("book.ironchest.guidebook.page4")));
-        pages.add(StringTag.of(getPage("book.ironchest.guidebook.page5")));
+        pages.add(StringTag.of(Text.Serializer.toJson(new TranslatableText("book.ironchest.guidebook.page1"))));
+        pages.add(StringTag.of(Text.Serializer.toJson(new TranslatableText("book.ironchest.guidebook.page2"))));
+        pages.add(StringTag.of(Text.Serializer.toJson(new TranslatableText("book.ironchest.guidebook.page3"))));
+        pages.add(StringTag.of(Text.Serializer.toJson(new TranslatableText("book.ironchest.guidebook.page4"))));
+        pages.add(StringTag.of(Text.Serializer.toJson(new TranslatableText("book.ironchest.guidebook.page5"))));
         tag.put("pages", pages);
 
         guideBook.setTag(tag);
         bookDataCreated = true;
-    }
-
-    private static String getPage(String key) {
-        String text = Language.getInstance().get(key);
-        return String.format("\"%s\"", text);
     }
 }
 
