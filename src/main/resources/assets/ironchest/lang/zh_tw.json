@@ -7,8 +7,8 @@
   "block.ironchest.silver_chest": "銀箱",
   "block.ironchest.crystal_chest": "水晶箱",
   "block.ironchest.obsidian_chest": "黑曜石箱",
-  "block.ironchest.holiday_chest": "Holiday Chest",
-  "block.ironchest.dirt_chest": "泥箱子 9000!",
+  "block.ironchest.holiday_chest": "聖誕箱",
+  "block.ironchest.dirt_chest": "泥箱子9000!",
   
   "_comment": "Upgrades",
   "item.ironchest.iron_gold_upgrade": "鐵箱升級成金箱",
@@ -22,12 +22,12 @@
   "item.ironchest.diamond_obsidian_upgrade": "鑽石箱升級成黑曜石箱",
 
   "_comment": "Books",
-  "book.ironchest.guidebook.title": "How to Use Your DirtChest 9000!",
-  "book.ironchest.guidebook.page1": "Welcome to your new DirtChest 9000! We hope you will enjoy many happy years of storing your stack of dirt in our storage utility.",
-  "book.ironchest.guidebook.page2": "Usage: simply insert the stack of dirt of your choice into the highly receptive slot and enjoy the great convenience of having that dirt available to you, any time you pass by this chest!",
-  "book.ironchest.guidebook.page3": "We hope you have enjoyed reviewing this instruction manual, and hope you will consider using our products in future! Kind regards, The DirtChest 9000 manual writers incorporated.",
-  "book.ironchest.guidebook.page4": "Warranty: This product has no warranty of any kind. Your dirt may not be stored, it may slowly leech into the environment, or alternatively, it may not do anything at all.",
-  "book.ironchest.guidebook.page5": "DirtChest 9000 is kind to the environment. Please dispose of this guide book responsibly, and do not whatever you do just chuck it into some lava. We would be very sad.",
+  "book.ironchest.guidebook.title": "笨蛋也一定會用的泥土箱9000!",
+  "book.ironchest.guidebook.page1": "歡迎使用全新的泥土箱9000!希望你能夠愉快地常年使用我們的設備來儲存泥土。",
+  "book.ironchest.guidebook.page2": "使用方法: 把一組泥土丟進去就行了。每次您經過的時候都可以打開它(很方便地)取出來用",
+  "book.ironchest.guidebook.page3": "我們希望您喜歡閱讀本說明手冊，並希望將來考慮使用我們的產品！作為泥箱子9000手冊作者我謹向您致以誠摯問候。",
+  "book.ironchest.guidebook.page4": "品質保障: 本產品不提供任何形式的保證。您的泥土可能不會被存儲，可能會慢慢滲入環境中，或者根本無法做任何事情。",
+  "book.ironchest.guidebook.page5": "泥箱子9000十分環保。請小心收藏好本手冊，如果你隨手丟進岩漿的話，我們會很傷心。",
   
   "_comment": "Item Groups",
   "itemGroup.ironchest.ironchest": "Iron Chests"
