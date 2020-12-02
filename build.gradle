@@ -32,8 +32,8 @@ dependencies {
 	include "io.github.cottonmc:LibGui:3.0.0-beta.1+1.16.2-rc2"
 }
 
+import groovy.json.JsonGenerator
 import groovy.json.JsonSlurper
-import groovy.json.JsonOutput
 
 processResources {
 	inputs.property "version", project.version
@@ -43,8 +43,10 @@ processResources {
 	}
 
 	doLast {
+		def jsonGenerator = new JsonGenerator.Options().disableUnicodeEscaping().build()
+
 		fileTree(dir: outputs.files.asPath, include: ["**/*.json","*.json"]).each {
-			File file -> file.text = JsonOutput.toJson(new JsonSlurper().parse(file))
+			File file -> file.text = jsonGenerator.toJson(new JsonSlurper().parse(file, 'UTF-8'))
 		}
 	}
 }
