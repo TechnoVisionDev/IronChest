@@ -80,13 +80,13 @@ public enum ExtraChestTypes {
             case SILVER:
                 return ModBlockEntityType.SILVER_CHEST.instantiate();
             case CRYSTAL:
-            	return ModBlockEntityType.CRYSTAL_CHEST.instantiate();
+                return ModBlockEntityType.CRYSTAL_CHEST.instantiate();
             case OBSIDIAN:
                 return ModBlockEntityType.OBSIDIAN_CHEST.instantiate();
             case DIRT:
-            	GenericIronChestBlockEntity dirtChest = ModBlockEntityType.DIRT_CHEST.instantiate();
-            	dirtChest.setStack(0, ModItems.dirtChestGuideBook.copy());
-            	return dirtChest;
+                GenericIronChestBlockEntity dirtChest = ModBlockEntityType.DIRT_CHEST.instantiate();
+                dirtChest.setStack(0, ModItems.dirtChestGuideBook.copy());
+                return dirtChest;
             case HOLIDAY:
                 return ModBlockEntityType.HOLIDAY_CHEST.instantiate();
             default:
@@ -115,7 +115,7 @@ public enum ExtraChestTypes {
             case HOLIDAY:
                 return ModScreenHandlerType.HOLIDAY_CHEST;
             default:
-            	return ModScreenHandlerType.HOLIDAY_CHEST;
+                return ModScreenHandlerType.HOLIDAY_CHEST;
         }
     }
 
