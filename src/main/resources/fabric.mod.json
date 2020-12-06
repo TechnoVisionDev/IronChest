@@ -4,9 +4,10 @@
   "version": "${version}",
 
   "name": "Iron Chests",
-  "description": "A complete Fabric port of the original Iron Chest mod. It adds a variety of new chests to the game with varying storage sizes and unique features. Each chest can each be upgraded over time as you collect and store more materials, adding a new system of progression to the game! ",
+  "description": "A complete Fabric port of the original Iron Chest mod. It adds a variety of new chests to the game with varying storage sizes and unique features. Each chest can be upgraded over time as you collect and store more materials, adding a new system of progression to the game! ",
   "authors": [
     "TechnoVision",
+    "NeRdTheNed",
     "cpw"
   ],
   "contact": {
