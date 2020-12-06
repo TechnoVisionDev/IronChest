@@ -32,16 +32,22 @@ dependencies {
 	include "io.github.cottonmc:LibGui:3.0.0-beta.1+1.16.2-rc2"
 }
 
+import groovy.json.JsonGenerator
+import groovy.json.JsonSlurper
+
 processResources {
 	inputs.property "version", project.version
 
-	from(sourceSets.main.resources.srcDirs) {
-		include "fabric.mod.json"
+	filesMatching("fabric.mod.json") {
 		expand "version": project.version
 	}
 
-	from(sourceSets.main.resources.srcDirs) {
-		exclude "fabric.mod.json"
+	doLast {
+		def jsonGenerator = new JsonGenerator.Options().disableUnicodeEscaping().build()
+
+		fileTree(dir: outputs.files.asPath, include: ["**/*.json","*.json"]).each {
+			File file -> file.text = jsonGenerator.toJson(new JsonSlurper().parse(file, 'UTF-8'))
+		}
 	}
 }
 
