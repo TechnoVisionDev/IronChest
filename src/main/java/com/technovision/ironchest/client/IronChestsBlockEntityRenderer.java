@@ -119,7 +119,7 @@ public class IronChestsBlockEntityRenderer<T extends BlockEntity> extends BlockE
         matrices.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(blockEntity.getWorld().getTime() + tickDelta));
         MinecraftClient.getInstance().getItemRenderer().renderItem(item, ModelTransformation.Mode.GROUND, light, overlay, matrices, vertexConsumers);
     }
-    
+
     private void handleModelRender(MatrixStack matrices, VertexConsumer vertices, ModelPart lid, ModelPart latch, ModelPart base, float openFactor, int light, int overlay) {
         lid.pitch = -(openFactor * 1.5707964F);
         latch.pitch = lid.pitch;

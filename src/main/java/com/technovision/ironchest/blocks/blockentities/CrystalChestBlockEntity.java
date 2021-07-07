@@ -2,19 +2,13 @@ package com.technovision.ironchest.blocks.blockentities;
 
 import com.technovision.ironchest.IronChests;
 import com.technovision.ironchest.blocks.ExtraChestTypes;
-import com.technovision.ironchest.registry.ModBlockEntityType;
-import com.technovision.ironchest.registry.ModScreenHandlerType;
-import com.technovision.ironchest.screenhandlers.ExtraChestScreenHandler;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;
 import net.fabricmc.fabric.api.server.PlayerStream;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.util.collection.DefaultedList;
 
 import java.util.stream.Stream;
@@ -25,7 +19,7 @@ public class CrystalChestBlockEntity extends GenericIronChestBlockEntity {
     private boolean inventoryTouched;
 
     public CrystalChestBlockEntity() {
-        super(ModBlockEntityType.CRYSTAL_CHEST, ExtraChestTypes.CRYSTAL);
+        super(ExtraChestTypes.CRYSTAL);
         topStacks = DefaultedList.ofSize(12, ItemStack.EMPTY);
         inventoryTouched = true;
     }
@@ -83,16 +77,6 @@ public class CrystalChestBlockEntity extends GenericIronChestBlockEntity {
     public void onClose(PlayerEntity player) {
         super.onClose(player);
         this.inventoryTouched = true;
-    }
-
-    @Override
-    public ScreenHandler createMenu(int syncId, PlayerInventory inventory, PlayerEntity player) {
-        return new ExtraChestScreenHandler(ModScreenHandlerType.CRYSTAL_CHEST, type, syncId, inventory, ScreenHandlerContext.create(world, pos));
-    }
-
-    @Override
-    protected ScreenHandler createScreenHandler(int syncId, PlayerInventory inventory) {
-        return new ExtraChestScreenHandler(ModScreenHandlerType.CRYSTAL_CHEST, type, syncId, inventory, ScreenHandlerContext.create(world, pos));
     }
 
 }
