@@ -25,7 +25,7 @@ public class GenericIronChestBlock extends ChestBlock {
 
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return this.type.makeEntity(pos, state);
+        return this.type.getEntity(pos, state);
     }
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {

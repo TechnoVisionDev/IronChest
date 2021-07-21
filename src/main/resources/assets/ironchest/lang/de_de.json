@@ -1,0 +1,34 @@
+{
+  "_comment": "Blocks",
+  "block.ironchest.iron_chest": "Eisenkiste",
+  "block.ironchest.gold_chest": "Goldkiste",
+  "block.ironchest.diamond_chest": "Diamantkiste",
+  "block.ironchest.copper_chest": "Kupferkiste",
+  "block.ironchest.silver_chest": "Silberkiste",
+  "block.ironchest.crystal_chest": "Kristallkiste",
+  "block.ironchest.obsidian_chest": "Obsidiankiste",
+  "block.ironchest.holiday_chest": "Ferienkiste",
+  "block.ironchest.dirt_chest": "Erdkiste 9000!",
+
+  "_comment": "Upgrades",
+  "item.ironchest.iron_gold_upgrade": "Eisen zu Gold Upgrade Upgrade",
+  "item.ironchest.gold_diamond_upgrade": "Gold zu Diamant Upgrade",
+  "item.ironchest.copper_silver_upgrade": "Kupfer zu Silber Upgrade",
+  "item.ironchest.silver_gold_upgrade": "Silber zu Gold Upgrade",
+  "item.ironchest.copper_iron_upgrade": "Kupfer zu Eisen Upgrade",
+  "item.ironchest.diamond_crystal_upgrade": "Diamant zu Kristall Upgrade",
+  "item.ironchest.wood_iron_upgrade": "Holz zu Eisen Upgrade",
+  "item.ironchest.wood_copper_upgrade": "Holz zu Kupfer Upgrade",
+  "item.ironchest.diamond_obsidian_upgrade": "Diamant zu Obsidian Upgrade",
+
+  "_comment": "Books",
+  "book.ironchest.guidebook.title": "Wie du deine Erdkiste 9000 verwendest!",
+  "book.ironchest.guidebook.page1": "Willkommen zu deiner Erdkiste 9000! Wir hoffen, dass du viel Spaß dabei haben wirst, Stackweise deine Erde zu speichern.",
+  "book.ironchest.guidebook.page2": "Benutzung: Pack deine Erde einfach in den empfänglichen Slot deiner Wahl und genieße den Vorteil, dass du jederzeit darauf zugreifen kannst!",
+  "book.ironchest.guidebook.page3": "Wir hoffen, dass es dir gefallen diese Einführung zu lesen. Auch hoffen wir, dass du unsere Produkte auch in Zukunft in Anspruch nehmen wirst!",
+  "book.ironchest.guidebook.page4": "Garantie: Dieses Produkt hat keine Garantie. Es kann sein, dass deine Erde nicht gespeichert wird. Auch kann es sein, dass deine Erde langsam aus der Kiste verschwindet, oder es passiert nichts.",
+  "book.ironchest.guidebook.page5": "Die Erdkiste 9000 ist umweltfreundlich. Bitte geh mit diesem Buch verantwortungsbewusst um und schmeiß es nicht in Lava. Das würde uns sehr traurig machen.",
+
+  "_comment": "Item Groups",
+  "itemGroup.ironchest.ironchest": "Iron Chests"
+}
