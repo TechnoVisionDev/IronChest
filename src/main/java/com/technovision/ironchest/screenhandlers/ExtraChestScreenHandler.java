@@ -4,6 +4,7 @@ import com.technovision.ironchest.blocks.ExtraChestTypes;
 import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
 import io.github.cottonmc.cotton.gui.widget.WItemSlot;
 import io.github.cottonmc.cotton.gui.widget.WPlainPanel;
+import io.github.cottonmc.cotton.gui.widget.data.Insets;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -13,8 +14,6 @@ import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
 
-import java.util.function.Predicate;
-
 public class ExtraChestScreenHandler extends SyncedGuiDescription {
 
     Inventory inventory;
@@ -22,7 +21,6 @@ public class ExtraChestScreenHandler extends SyncedGuiDescription {
     public ExtraChestScreenHandler(ScreenHandlerType<?> type, ExtraChestTypes chestType, int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(type, syncId, playerInventory, getBlockInventory(context, chestType.size), null);
         inventory = blockInventory;
-        inventory.onOpen(playerInventory.player);
         int rows = chestType.getRowCount();
         int length = chestType.rowLength;
 
@@ -44,30 +42,17 @@ public class ExtraChestScreenHandler extends SyncedGuiDescription {
                 }
             }
         }
+        root.setInsets(Insets.ROOT_PANEL);
 
         int height = 15;
         height += 18 * (chestType.size / length);
-
         int width = 0;
+
         if (chestType.rowLength > 9) {
             width = 9 * (chestType.rowLength - 9);
         }
 
         root.add(this.createPlayerInventoryPanel(), width, height);
         root.validate(this);
-    }
-
-
-    @Override
-    public boolean canInsertIntoSlot(ItemStack stack, Slot slot) {
-        return stack.getItem() == Items.DIRT;
-    }
-
-
-
-    @Override
-    public void close(PlayerEntity player) {
-        super.close(player);
-        this.inventory.onClose(player);
     }
 }

@@ -13,19 +13,13 @@ import net.minecraft.util.Identifier;
 public class IronChests implements ModInitializer {
 
     public static final String MOD_ID = "ironchest";
-    public static final Identifier UPDATE_INV_PACKET_ID = new Identifier(MOD_ID, "update");
+    public static final ItemGroup TAB = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "ironchest"), () -> new ItemStack(ModBlocks.IRON_CHEST));
 
     @Override
     public void onInitialize() {
-
-        ModBlockEntityType.registerBlockEntities();
-        ModBlocks.registerBlocks();
         ModItems.registerItems();
+        ModBlocks.registerBlocks();
+        ModBlockEntityType.registerBlockEntities();
         ModScreenHandlerType.registerScreenHandlers();
     }
-
-    public static final ItemGroup TAB = FabricItemGroupBuilder.create(
-            new Identifier(MOD_ID, "ironchest"))
-            .icon(() -> new ItemStack(ModItems.IRON_CHEST))
-            .build();
 }

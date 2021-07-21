@@ -1,94 +1,84 @@
 package com.technovision.ironchest.blocks;
 
 import com.technovision.ironchest.IronChests;
-import com.technovision.ironchest.blocks.blockentities.*;
-import com.technovision.ironchest.registry.ModBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import com.technovision.ironchest.registry.ModBlockEntityType;
+import com.technovision.ironchest.registry.ModScreenHandlerType;
+import com.technovision.ironchest.screenhandlers.ExtraChestScreenHandler;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.block.entity.ChestBlockEntity;
+import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 
 public enum ExtraChestTypes {
 
-    IRON(54, 9, 184, 222, new Identifier(IronChests.MOD_ID, "entity/chest/iron_chest"), 256, 256),
-    GOLD(81, 9, 184, 276, new Identifier(IronChests.MOD_ID, "entity/chest/gold_chest"), 256, 276),
-    DIAMOND(108, 12, 238, 276, new Identifier(IronChests.MOD_ID, "entity/chest/diamond_chest"), 256, 276),
-    COPPER(45, 9, 184, 204, new Identifier(IronChests.MOD_ID, "entity/chest/copper_chest"), 256, 256),
-    SILVER(72, 9, 184, 258, new Identifier(IronChests.MOD_ID, "entity/chest/silver_chest"), 256, 276),
-    CRYSTAL(108, 12, 238, 276, new Identifier(IronChests.MOD_ID, "entity/chest/crystal_chest"), 256, 276),
-    OBSIDIAN(108, 12, 238, 276, new Identifier(IronChests.MOD_ID,"entity/chest/obsidian_chest"), 256, 276),
-    DIRT(1, 1, 184, 184, new Identifier(IronChests.MOD_ID, "entity/chest/dirt_chest"), 256, 256),
-    HOLIDAY(27, 9, 0, 0, new Identifier("entity/chest/christmas"), 0, 0),
-    WOOD(0, 0, 0, 0, new Identifier(IronChests.MOD_ID, ("entity/chest/dirt_chest")), 0, 0);
+    IRON(54, 9, new Identifier(IronChests.MOD_ID, "entity/chest/iron_chest")),
+    GOLD(81, 9, new Identifier(IronChests.MOD_ID, "entity/chest/gold_chest")),
+    DIAMOND(108, 12, new Identifier(IronChests.MOD_ID, "entity/chest/diamond_chest")),
+    COPPER(45, 9, new Identifier(IronChests.MOD_ID, "entity/chest/copper_chest")),
+    SILVER(72, 9, new Identifier(IronChests.MOD_ID, "entity/chest/silver_chest")),
+    CRYSTAL(108, 12, new Identifier(IronChests.MOD_ID, "entity/chest/crystal_chest")),
+    OBSIDIAN(108, 12, new Identifier(IronChests.MOD_ID,"entity/chest/obsidian_chest")),
+    DIRT(1, 1, new Identifier(IronChests.MOD_ID, "entity/chest/dirt_chest")),
+    HOLIDAY(27, 9, new Identifier("entity/chest/christmas")),
+    WOOD(0, 0, new Identifier(IronChests.MOD_ID, ("entity/chest/dirt_chest")));
 
     public final int size;
     public final int rowLength;
-    public final int xSize;
-    public final int ySize;
     public final Identifier texture;
-    public final int textureXSize;
-    public final int textureYSize;
 
-    ExtraChestTypes(int size, int rowLength, int xSize, int ySize, Identifier texture, int textureXSize, int textureYSize) {
+    ExtraChestTypes(int size, int rowLength, Identifier texture) {
         this.size = size;
         this.rowLength = rowLength;
-        this.xSize = xSize;
-        this.ySize = ySize;
         this.texture = texture;
-        this.textureXSize = textureXSize;
-        this.textureYSize = textureYSize;
     }
 
     public int getRowCount() {
         return this.size / this.rowLength;
     }
 
-    public static Block get(ExtraChestTypes type) {
-        switch (type) {
-            case IRON:
-                return ModBlocks.IRON_CHEST;
-            case GOLD:
-                return ModBlocks.GOLD_CHEST;
-            case DIAMOND:
-                return ModBlocks.DIAMOND_CHEST;
-            case COPPER:
-                return ModBlocks.COPPER_CHEST;
-            case SILVER:
-                return ModBlocks.SILVER_CHEST;
-            case CRYSTAL:
-                return ModBlocks.CRYSTAL_CHEST;
-            case OBSIDIAN:
-                return ModBlocks.OBSIDIAN_CHEST;
-            case DIRT:
-                return ModBlocks.DIRT_CHEST;
-            case HOLIDAY:
-                return ModBlocks.HOLIDAY_CHEST;
-            default:
-                return Blocks.CHEST;
-        }
+    public ChestBlockEntity makeEntity(BlockPos pos, BlockState state) {
+        return switch (this) {
+            case IRON -> ModBlockEntityType.IRON_CHEST.instantiate(pos, state);
+            case GOLD -> ModBlockEntityType.GOLD_CHEST.instantiate(pos, state);
+            case DIAMOND -> ModBlockEntityType.DIAMOND_CHEST.instantiate(pos, state);
+            case COPPER -> ModBlockEntityType.COPPER_CHEST.instantiate(pos, state);
+            case SILVER -> ModBlockEntityType.SILVER_CHEST.instantiate(pos, state);
+            case CRYSTAL -> ModBlockEntityType.CRYSTAL_CHEST.instantiate(pos, state);
+            case OBSIDIAN -> ModBlockEntityType.OBSIDIAN_CHEST.instantiate(pos, state);
+            case HOLIDAY -> ModBlockEntityType.HOLIDAY_CHEST.instantiate(pos, state);
+            case DIRT -> ModBlockEntityType.DIRT_CHEST.instantiate(pos, state);
+            default -> new ChestBlockEntity(pos, state);
+        };
     }
 
-    public GenericIronChestBlockEntity makeEntity() {
-        switch (this) {
-            case IRON:
-                return new IronChestBlockEntity();
-            case GOLD:
-                return new GoldChestBlockEntity();
-            case DIAMOND:
-                return new DiamondChestBlockEntity();
-            case COPPER:
-                return new CopperChestBlockEntity();
-            case SILVER:
-                return new SilverChestBlockEntity();
-            case CRYSTAL:
-                return new CrystalChestBlockEntity();
-            case OBSIDIAN:
-                return new ObsidianChestBlockEntity();
-            case DIRT:
-                return new DirtChestBlockEntity();
-            case HOLIDAY:
-                return new HolidayChestBlockEntity();
-            default:
-                return null;
-        }
+    public BlockEntityType<? extends ChestBlockEntity> getBlockEntityType() {
+        return switch (this) {
+            case IRON -> ModBlockEntityType.IRON_CHEST;
+            case GOLD -> ModBlockEntityType.GOLD_CHEST;
+            case DIAMOND -> ModBlockEntityType.DIAMOND_CHEST;
+            case COPPER -> ModBlockEntityType.COPPER_CHEST;
+            case SILVER -> ModBlockEntityType.SILVER_CHEST;
+            case CRYSTAL -> ModBlockEntityType.CRYSTAL_CHEST;
+            case OBSIDIAN -> ModBlockEntityType.OBSIDIAN_CHEST;
+            case HOLIDAY -> ModBlockEntityType.HOLIDAY_CHEST;
+            case DIRT -> ModBlockEntityType.DIRT_CHEST;
+            default -> BlockEntityType.CHEST;
+        };
+    }
+
+    public ScreenHandlerType<ExtraChestScreenHandler> getScreenHandlerType() {
+        return switch (this) {
+            case IRON -> ModScreenHandlerType.IRON_CHEST;
+            case GOLD -> ModScreenHandlerType.GOLD_CHEST;
+            case DIAMOND -> ModScreenHandlerType.DIAMOND_CHEST;
+            case COPPER -> ModScreenHandlerType.COPPER_CHEST;
+            case SILVER -> ModScreenHandlerType.SILVER_CHEST;
+            case CRYSTAL -> ModScreenHandlerType.CRYSTAL_CHEST;
+            case OBSIDIAN -> ModScreenHandlerType.OBSIDIAN_CHEST;
+            case DIRT -> ModScreenHandlerType.DIRT_CHEST;
+            default -> ModScreenHandlerType.HOLIDAY_CHEST;
+        };
     }
 }

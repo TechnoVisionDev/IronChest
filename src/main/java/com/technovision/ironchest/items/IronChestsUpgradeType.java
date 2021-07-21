@@ -4,7 +4,6 @@ import com.technovision.ironchest.blocks.ExtraChestTypes;
 import static com.technovision.ironchest.blocks.ExtraChestTypes.*;
 
 public enum IronChestsUpgradeType {
-
     IRON_TO_GOLD(IRON, GOLD),
     GOLD_TO_DIAMOND(GOLD, DIAMOND),
     COPPER_TO_SILVER(COPPER, SILVER),
