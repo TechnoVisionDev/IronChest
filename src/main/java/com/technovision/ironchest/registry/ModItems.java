@@ -3,8 +3,10 @@ package com.technovision.ironchest.registry;
 import com.technovision.ironchest.IronChests;
 import com.technovision.ironchest.items.IronChestsUpgradeType;
 import com.technovision.ironchest.items.UpgradeItem;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -32,6 +34,9 @@ public class ModItems {
     public static final Item DIAMOND_CRYSTAL_UPGRADE = new UpgradeItem(IronChestsUpgradeType.DIAMOND_TO_CRYSTAL);
     public static final Item DIAMOND_OBSIDIAN_UPGRADE = new UpgradeItem(IronChestsUpgradeType.DIAMOND_TO_OBSIDIAN);
 
+    // Placeholder ingots
+    public static final Item SILVER_INGOT = new Item(new FabricItemSettings().group(ItemGroup.MATERIALS));
+
     public static void registerItems() {
         Registry.register(Registry.ITEM, new Identifier(IronChests.MOD_ID, "iron_chest"), IRON_CHEST);
         Registry.register(Registry.ITEM, new Identifier(IronChests.MOD_ID, "gold_chest"), GOLD_CHEST);
@@ -52,5 +57,7 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(IronChests.MOD_ID, "gold_diamond_upgrade"), GOLD_DIAMOND_UPGRADE);
         Registry.register(Registry.ITEM, new Identifier(IronChests.MOD_ID, "diamond_crystal_upgrade"), DIAMOND_CRYSTAL_UPGRADE);
         Registry.register(Registry.ITEM, new Identifier(IronChests.MOD_ID, "diamond_obsidian_upgrade"), DIAMOND_OBSIDIAN_UPGRADE);
+
+        Registry.register(Registry.ITEM, new Identifier(IronChests.MOD_ID, "silver_ingot"), SILVER_INGOT);
     }
 }

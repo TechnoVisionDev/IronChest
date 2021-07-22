@@ -30,5 +30,8 @@
   "book.ironchest.guidebook.page5": "DirtChest 9000 is kind to the environment. Please dispose of this guide book responsibly, and do not whatever you do just chuck it into some lava. We would be very sad.",
   
   "_comment": "Item Groups",
-  "itemGroup.ironchest.ironchest": "Iron Chests"
+  "itemGroup.ironchest.ironchest": "Iron Chests",
+
+  "_comment": "Placeholder Ingots",
+  "item.ironchest.silver_ingot": "Silver Ingot"
 }

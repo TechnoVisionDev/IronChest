@@ -30,5 +30,8 @@
   "book.ironchest.guidebook.page5": "Die Erdkiste 9000 ist umweltfreundlich. Bitte geh mit diesem Buch verantwortungsbewusst um und schmeiß es nicht in Lava. Das würde uns sehr traurig machen.",
 
   "_comment": "Item Groups",
-  "itemGroup.ironchest.ironchest": "Iron Chests"
+  "itemGroup.ironchest.ironchest": "Iron Chests",
+
+  "_comment": "Placeholder Ingots",
+  "item.ironchest.silver_ingot": "Silver Ingot"
 }

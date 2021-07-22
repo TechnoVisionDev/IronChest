@@ -30,5 +30,8 @@
   "book.ironchest.guidebook.page5": "泥箱子9000十分環保。請小心收藏好本手冊，如果你隨手丟進岩漿的話，我們會很傷心。",
   
   "_comment": "Item Groups",
-  "itemGroup.ironchest.ironchest": "Iron Chests"
+  "itemGroup.ironchest.ironchest": "Iron Chests",
+
+  "_comment": "Placeholder Ingots",
+  "item.ironchest.silver_ingot": "Silver Ingot"
 }

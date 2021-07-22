@@ -8,6 +8,7 @@
   "authors": [
     "TechnoVision",
     "NeRdTheNed",
+    "Cyberanner",
     "cpw"
   ],
   "contact": {
@@ -15,7 +16,7 @@
     "sources": "https://github.com/TechnoVisionDev/IronChest"
   },
 
-  "license": "CC0-1.0",
+  "license": "GPL-3.0",
   "icon": "assets/ironchest/icon.png",
 
   "environment": "*",
