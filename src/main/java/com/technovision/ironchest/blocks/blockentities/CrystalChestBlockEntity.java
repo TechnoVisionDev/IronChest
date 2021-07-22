@@ -6,7 +6,5 @@ import net.minecraft.util.math.BlockPos;
 
 public class CrystalChestBlockEntity extends GenericIronChestBlockEntity {
 
-    public CrystalChestBlockEntity(BlockPos pos, BlockState state) {
-        super(ExtraChestTypes.CRYSTAL, pos, state);
-    }
+    public CrystalChestBlockEntity(BlockPos pos, BlockState state) { super(ExtraChestTypes.CRYSTAL, pos, state); }
 }

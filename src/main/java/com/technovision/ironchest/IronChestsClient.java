@@ -1,6 +1,7 @@
 package com.technovision.ironchest;
 
 import com.technovision.ironchest.blocks.ExtraChestTypes;
+import com.technovision.ironchest.blocks.blockentities.CrystalChestBlockEntity;
 import com.technovision.ironchest.client.ChestEntityRenderer;
 import com.technovision.ironchest.registry.ModBlockEntityType;
 import com.technovision.ironchest.registry.ModScreenHandlerType;
@@ -10,7 +11,12 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
+import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.TexturedRenderLayers;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.util.math.BlockPos;
 
 public class IronChestsClient implements ClientModInitializer {
 
