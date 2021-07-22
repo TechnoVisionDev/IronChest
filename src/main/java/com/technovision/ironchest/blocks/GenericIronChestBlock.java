@@ -40,6 +40,6 @@ public class GenericIronChestBlock extends ChestBlock {
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return world.isClient  & type == this.type.getBlockEntityType() ? (world1, pos, state1, blockEntity) -> ((GenericIronChestBlockEntity)blockEntity).clientTick() : null;
+        return world.isClient & type == this.type.getBlockEntityType() ? (world1, pos, state1, blockEntity) -> ((GenericIronChestBlockEntity)blockEntity).clientTick() : null;
     }
 }

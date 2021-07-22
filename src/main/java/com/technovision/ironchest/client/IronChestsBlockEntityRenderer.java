@@ -1,12 +1,14 @@
 package com.technovision.ironchest.client;
 
 import com.technovision.ironchest.blocks.GenericIronChestBlock;
+import com.technovision.ironchest.blocks.blockentities.CrystalChestBlockEntity;
 import it.unimi.dsi.fastutil.floats.Float2FloatFunction;
 import it.unimi.dsi.fastutil.ints.Int2IntFunction;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.ChestBlockEntity;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.block.ChestAnimationProgress;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.RenderLayer;
@@ -17,20 +19,23 @@ import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.block.entity.ChestBlockEntityRenderer;
 import net.minecraft.client.render.block.entity.LightmapCoordinatesRetriever;
 import net.minecraft.client.render.entity.model.EntityModelLayers;
+import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3f;
 import net.minecraft.world.World;
 
 @Environment(EnvType.CLIENT)
-public class ChestEntityRenderer<T extends ChestBlockEntity> extends ChestBlockEntityRenderer<T> {
+public class IronChestsBlockEntityRenderer<T extends ChestBlockEntity> extends ChestBlockEntityRenderer<T> {
 
     private final ModelPart chestLid;
     private final ModelPart chestBottom;
     private final ModelPart chestLock;
 
-    public ChestEntityRenderer(BlockEntityRendererFactory.Context context) {
+    public IronChestsBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
         super(context);
 
         ModelPart modelPart = context.getLayerModelPart(EntityModelLayers.CHEST);
@@ -70,13 +75,48 @@ public class ChestEntityRenderer<T extends ChestBlockEntity> extends ChestBlockE
             SpriteIdentifier spriteIdentifier = new SpriteIdentifier(TexturedRenderLayers.CHEST_ATLAS_TEXTURE, chest.getType().texture);
             VertexConsumer vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers, RenderLayer::getEntityCutout);
 
-            renderMatrices(matrices, vertexConsumer, this.chestLid, this.chestLock, this.chestBottom, g, i, overlay);
+            handleModelRender(matrices, vertexConsumer, this.chestLid, this.chestLock, this.chestBottom, g, i, overlay);
+
+            if (entity instanceof CrystalChestBlockEntity) {
+                renderItems(matrices, (CrystalChestBlockEntity) entity, tickDelta, vertexConsumers, light, overlay);
+            }
 
             matrices.pop();
         }
     }
 
-    private static void renderMatrices(MatrixStack matrices, VertexConsumer vertices, ModelPart lid, ModelPart latch, ModelPart base, float openFactor, int light, int overlay) {
+    private void renderItems(MatrixStack matrices, CrystalChestBlockEntity blockEntity, float tickDelta, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+        DefaultedList<ItemStack> inv = blockEntity.getInvStackList();
+        int counter = 0;
+        for (int j = 0; j < 3; j++) {
+            renderItem(0.55, 0.3 + (j * 0.5), 0.7, inv, counter, matrices, blockEntity, tickDelta, vertexConsumers, light, overlay);
+            counter++;
+        }
+        for (int j = 0; j < 3; j++) {
+            renderItem(1.4, 0.3 + (j * 0.5), 0.7, inv, counter, matrices, blockEntity, tickDelta, vertexConsumers, light, overlay);
+            counter++;
+        }
+        for (int j = 0; j < 3; j++) {
+            renderItem(0.55, 0.3 + (j * 0.5), 1.4, inv, counter, matrices, blockEntity, tickDelta, vertexConsumers, light, overlay);
+            counter++;
+        }
+        for (int j = 0; j < 3; j++) {
+            renderItem(1.4, 0.3 + (j * 0.5), 1.4, inv, counter, matrices, blockEntity, tickDelta, vertexConsumers, light, overlay);
+            counter++;
+        }
+    }
+
+    private void renderItem(double x, double y, double z, DefaultedList<ItemStack> inv, int counter, MatrixStack matrices, CrystalChestBlockEntity blockEntity, float tickDelta, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+        matrices.pop();
+        matrices.push();
+        ItemStack item = inv.get(counter);
+        matrices.scale(0.5f, 0.5f, 0.5f);
+        matrices.translate(x, y, z);
+        matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(blockEntity.getWorld().getTime() + tickDelta));
+        MinecraftClient.getInstance().getItemRenderer().renderItem(item, ModelTransformation.Mode.GROUND, light, overlay, matrices, vertexConsumers, 0);
+    }
+
+    private static void handleModelRender(MatrixStack matrices, VertexConsumer vertices, ModelPart lid, ModelPart latch, ModelPart base, float openFactor, int light, int overlay) {
         lid.pitch = -openFactor * 1.5707964F;
         latch.pitch = lid.pitch;
         lid.render(matrices, vertices, light, overlay);
