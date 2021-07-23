@@ -26,9 +26,9 @@ To report issue, add a translation, or make a feature suggestion, please open a 
 
 # Screenshots
 <img src="https://user-images.githubusercontent.com/31110377/126720455-c10bf13e-9ce5-4d21-863a-478c3c2bbfee.png" width="70%" height="70%" />
-<img src="https://user-images.githubusercontent.com/31110377/126720459-42bcc99a-683b-470d-a792-88df1b4386e7.png" width="70%" height="70%" />
-<img src="https://user-images.githubusercontent.com/31110377/126720463-60734f3f-7f8c-492e-aa9a-8c3ad5342ae1.png" width="70%" height="70%" />
-<img src="https://user-images.githubusercontent.com/31110377/126720464-b626298e-59d2-4701-9c58-50c00d924bda.png" width="70%" height="70%" />
+<img src="https://user-images.githubusercontent.com/31110377/126723230-42152fe1-b4d1-450c-96df-5199e33101a0.png" width="70%" height="70%" />
+<img src="https://user-images.githubusercontent.com/31110377/126723240-265f64f8-c41d-4a8e-9b80-fcf7abd55a98.png" width="70%" height="70%" />
+<img src="https://user-images.githubusercontent.com/31110377/126723566-6debc792-9e40-4bfc-887c-c6e5a74c743b.png" width="70%" height="70%" />
 
 # Credits
 
