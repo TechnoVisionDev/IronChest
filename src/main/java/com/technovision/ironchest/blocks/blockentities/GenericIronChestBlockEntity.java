@@ -34,11 +34,6 @@ public class GenericIronChestBlockEntity extends ChestBlockEntity implements Blo
     }
 
     @Override
-    public ScreenHandler createMenu(int syncId, PlayerInventory inventory, PlayerEntity player) {
-        return new ExtraChestScreenHandler(type.getScreenHandlerType(), type, syncId, inventory, ScreenHandlerContext.create(world, pos));
-    }
-
-    @Override
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory inventory) {
         return new ExtraChestScreenHandler(type.getScreenHandlerType(), type, syncId, inventory, ScreenHandlerContext.create(world, pos));
     }
