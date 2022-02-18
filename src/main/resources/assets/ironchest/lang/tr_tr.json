@@ -1,0 +1,37 @@
+{
+  "_comment": "Bloklar",
+  "block.ironchest.iron_chest": "Demir Sandık",
+  "block.ironchest.gold_chest": "Altın Sandık",
+  "block.ironchest.diamond_chest": "Elmas Sandık",
+  "block.ironchest.copper_chest": "Bakır Sandık",
+  "block.ironchest.silver_chest": "Gümüş Sandık",
+  "block.ironchest.crystal_chest": "Kristal Sandık",
+  "block.ironchest.obsidian_chest": "Obsidyen Sandık",
+  "block.ironchest.holiday_chest": "Bayram Sandık",
+  "block.ironchest.dirt_chest": "ToprakSandık 9000!",
+  
+  "_comment": "Geliştirmeler",
+  "item.ironchest.iron_gold_upgrade": "Demirden Altın Sandık Geliştirmesi",
+  "item.ironchest.gold_diamond_upgrade": "Altından Elmas Sandık Geliştirmesi",
+  "item.ironchest.copper_silver_upgrade": "Bakırdan Gümüş Sandık Geliştirmesi",
+  "item.ironchest.silver_gold_upgrade": "Gümüşten Altın Sandık Geliştirmesi",
+  "item.ironchest.copper_iron_upgrade": "Bakırdan Demir Sandık Geliştirmesi",
+  "item.ironchest.diamond_crystal_upgrade": "Elmastan Kristal Sandık Geliştirmesi",
+  "item.ironchest.wood_iron_upgrade": "Tahtadan Demir Sandık Geliştirmesi",
+  "item.ironchest.wood_copper_upgrade": "Tahtadan Bakır Sandık Geliştirmesi",
+  "item.ironchest.diamond_obsidian_upgrade": "Elmastan Obsidyen Sandık Geliştirmesi",
+
+  "_comment": "Kitaplar",
+  "book.ironchest.guidebook.title": "ToprakSandık 9000 nasıl kullanılır!",
+  "book.ironchest.guidebook.page1": "Yeni ToprakSandık 9000'inine hoşgeldin! Umarız bir stek toprağını bizim depolama hizmetimizde depoladığın mutlu yıllar geçirirsin.",
+  "book.ironchest.guidebook.page2": "Kullanım: Basitce tercihin olan toprak steğini gelişmiş alıcılı slota yerleştir ve her sandığın yanından geçtiğin zaman o toprağın sana sağladığı elverişlilikten zevk al!",
+  "book.ironchest.guidebook.page3": "Umarız bu Kılavuzdan zevk almışşındır ve gelecekte bizim ürünlerimizi kullanmayı düşünürsün! Saygılarla -ToprakSandık 9000 kılavuzu yazarları.",
+  "book.ironchest.guidebook.page4": "Garanti: Bu ürünün hiç bir türden garantisi yok. Toprağınız depolanmayabilir, yavaşça etrafa saçılabilir veya hiç bir şey yapmayabilir.",
+  "book.ironchest.guidebook.page5": "ToprakSandık 9000 doğa dostu. Lütfen bu kılavuzu sorumluca atın, ve ne yaparsan yap onu lava atam. Biz çok üzülürüz.",
+  
+  "_comment": "Eşya Grupları",
+  "itemGroup.ironchest.ironchest": "Demir Sandıklar",
+
+  "_comment": "Placeholder Külçe",
+  "item.ironchest.silver_ingot": "Gümüş Külçe"
+}
